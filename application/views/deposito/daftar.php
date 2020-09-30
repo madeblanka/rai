@@ -13,15 +13,19 @@
                                 <form action="<?php echo site_url('deposito/add') ?>" method="post">
                                 <div class="form-group">
                                     <label for="exampleFormControlInput1">ID Nasabah</label>
-                                    <input type="number" class="form-control" name="idnasabah"  placeholder="ID Nasabah">
+                                    <input type="number" class="form-control" name="idnasabah"  placeholder="ID Nasabah" readonly>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleFormControlInput1">Jumlah</label>
-                                    <input type="number" class="form-control" name="jumlah"  placeholder="000000">
+                                    <input required min="5000000" type="text" id="myText" onblur="formatValue()" class="form-control" name="jumlah"  placeholder="000000">
+                                    <h6>*minimal 5.000.000</h6>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleFormControlInput1">Bunga </label>
-                                    <input type="text" class="form-control" name="bunga"  placeholder="">
+                                    <input type="text" class="form-control" name="bunga" 
+                                    value="<?php foreach ($bunga as $td): 
+                                            echo $td->bunga;
+                                            endforeach;?>">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleFormControlInput1">Bulan</label>
@@ -35,4 +39,9 @@
             </div>
         </div>
 <?php $this->load->view("_partialsadmin/footer.php") ?>
-
+<script>
+function formatValue(){
+   var x = Number(document.getElementById('myText').value);
+   document.getElementById('myText').value = x.toLocaleString();
+}
+</script>

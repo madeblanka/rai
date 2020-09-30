@@ -17,7 +17,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleFormControlInput1">Jumlah</label>
-                                    <input type="number" class="form-control" name="jumlah"  placeholder="000000">
+                                    <input required  type="text" id="myText" onblur="formatValue()" class="form-control" name="jumlah"  placeholder="000000">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleFormControlInput1">Bunga </label>
@@ -35,4 +35,11 @@
             </div>
         </div>
 <?php $this->load->view("_partialsadmin/footer.php") ?>
+<script>
+function formatValue(){
+   var x = Number(document.getElementById('myText').value);
+   document.getElementById('myText').value = x.toLocaleString();
+}
+</script>
+
 

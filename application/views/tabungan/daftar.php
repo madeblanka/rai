@@ -16,14 +16,6 @@
                                     <input type="number" class="form-control" name="idnasabah"  placeholder="ID Nasabah">
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleFormControlInput1">Ahli Waris</label>
-                                    <input type="text" class="form-control" name="ahliwaris"  placeholder="Ahli Waris">
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleFormControlInput1">Status Ahli Waris</label>
-                                    <input type="text" class="form-control" name="statusahliwaris"  placeholder="Contoh : Sodara Kandung / Paman / Keponakan">
-                                </div>
-                                <div class="form-group">
                                     <label for="exampleFormControlInput1">Jenis Tabungan</label>
                                     <input type="email" class="form-control" name="jenistabungan"  placeholder="Jenis Tabungan">
                                 </div>
