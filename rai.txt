@@ -1,0 +1,23 @@
+pinjaman max 5 tahun .
+nasabah login pengajuan .
+petugas konfrimasi pendaftaran nasabah
+
+tb_nasabah
+tb_petugas
+tb_deposito = laporan bulanan
+tb_kredit = laporan bulanan
+tb_tabungan_program = laporan bulanan
+
+tabungan program bunga paten kapanpun bulan nya
+deposito bunga flexsible mengikuti bulan
+kredit bunga menurun flexsible mengikuti pinjaman ( range 1 - 10 bunga 1& , 11 - 20 bunga 2% )
+
+
+deposito dibawah 5jt tidak bisa
+contoh perhitungan deposito https://bri.co.id/simulasi-deposito
+
+
+contoh hasil perhitungan kredit https://www.simulasikredit.com/calculate.php
+
+
+SUKU BUNGA == UANG 
