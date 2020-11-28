@@ -29,6 +29,14 @@
                     <input type="text" class="form-control" name="nama" placeholder="Nama Lengkap" value="<?= $nasabah['nama']; ?>">
                 </div>
                 <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="text" class="form-control" name="email" placeholder="Email" value="<?= $nasabah['email']; ?>">
+                </div>
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control" name="username" placeholder="Username" value="<?= $nasabah['username']; ?>">
+                </div>
+                <div class="form-group">
                     <label for="nama">Jenis Kelamin</label>
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="jeniskelamin" id="pria" value="Pria" <?php echo ($nasabah['jeniskelamin'] == 'Pria') ? 'checked' : '' ?>>

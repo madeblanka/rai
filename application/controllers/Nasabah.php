@@ -23,7 +23,7 @@ class Nasabah extends CI_Controller
 		$nasabah = $this->Nasabah_model->save();
 		if ($nasabah == true) {
 			$this->session->set_flashdata('message', 'Data Berhasil Disimpan');
-			redirect("halamanutama/index");
+			redirect("nasabah/login");
 		} else {
 			$this->load->view("daftar");
 		}
@@ -41,14 +41,14 @@ class Nasabah extends CI_Controller
 
 	public function login()
 	{
-		$this->form_validation->set_rules('nik', 'Nik', 'required|trim');
+		$this->form_validation->set_rules('username', 'username', 'required|trim');
 		$this->form_validation->set_rules('password', 'Password', 'required|trim');
 
 		if ($this->form_validation->run() == false) {
 			$data['title'] = 'Login Page';
 			$this->load->view('login', $data);
 		} else {
-			$nik = $this->input->post('nik');
+			$username = $this->input->post('username');
 			$password = $this->input->post('password');
 
 			$user = $this->Nasabah_model->login();
@@ -57,6 +57,7 @@ class Nasabah extends CI_Controller
 				if ($password == $user['password']) {
 					// kirim data ke halaman selanjutnya
 					$data = [
+						'username' => $user['username'],
 						'nik' => $user['nik'],
 					];
 					$this->session->set_userdata($data);
@@ -67,7 +68,48 @@ class Nasabah extends CI_Controller
 					redirect('nasabah/login');
 				}
 			} else {
-				$this->session->set_flashdata('warning', 'NIK Salah');
+
+
+				$pegawai = $this->db->get_where('pegawai', ['username' => $this->input->post('username')])->row_array();
+				if ($pegawai != null) {
+					// cek password yg sdh di hash
+					if ($password == $pegawai['password']) {
+						// kirim data ke halaman selanjutnya
+						$data = [
+							'email' => $pegawai['email'],
+							'username' => $pegawai['username'],
+							'idpegawai' => $pegawai['idpegawai'],
+						];
+						$this->session->set_userdata($data);
+						redirect('pegawai/index');
+					} else {
+						$this->session->set_flashdata('warning', 'Password Salah');
+						redirect('nasabah/login');
+					}
+				} else {
+					// user tdk ada
+					// send pesan
+					$this->session->set_flashdata('warning', 'Username Salah');
+					redirect('nasabah/login');
+				}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+				$this->session->set_flashdata('warning', 'Username Salah');
 				redirect('nasabah/login');
 			}
 		}
@@ -75,6 +117,7 @@ class Nasabah extends CI_Controller
 
 	public function logout()
 	{
+		$this->session->unset_userdata('email');
 		$this->session->unset_userdata('nik');
 
 		// send pesan
@@ -84,6 +127,8 @@ class Nasabah extends CI_Controller
 
 	public function detailpengajuan()
 	{
+		// var_dump($this->session->userdata('nik'));
+		// die;
 		if ($this->session->userdata('nik')) {
 			$nasabah = $this->db->get_where('nasabah', ['nik' => $this->session->userdata('nik')])->row_array();
 		} else {
@@ -172,6 +217,8 @@ class Nasabah extends CI_Controller
 
 	public function dashboard()
 	{
+		// var_dump($this->session->userdata('nik'));
+		// die;
 		$nasabah = $this->db->get_where('nasabah', ['nik' => $this->session->userdata('nik')])->row_array();
 		$idnasabah = $nasabah['idnasabah'];
 		$this->db->where('idnasabah =', $idnasabah);

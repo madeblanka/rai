@@ -12,7 +12,9 @@ class Nasabah_model extends CI_Model
     public $pernikahan;
     public $notelp;
     public $tempatkerja;
-    public $lamakerja;
+    public $lamakerja_tahun;
+    public $lamakerja_bulan;
+    public $tgl_lahir;
     public $jabatan;
     public $gaji;
     public $umur;
@@ -39,16 +41,23 @@ class Nasabah_model extends CI_Model
 
     public function save()
     {
+        $timestamp = date("Y-m-d H:i:s");
+
         $post = $this->input->post();
         $this->idnasabah = '5171' . rand(00000, 99999);
-        $this->password = rand(000000, 999999);
+        // $this->password = rand(000000, 999999);
+        $this->password = $post["password"];
         $this->nik = $post["nik"];
+        $this->email = $post["email"];
+        $this->username = $post["username"];
         $this->nama = $post["nama"];
         $this->jeniskelamin = $post["jeniskelamin"];
         $this->pernikahan = $post["pernikahan"];
         $this->notelp = $post["notelp"];
         $this->tempatkerja = $post["tempatkerja"];
-        $this->lamakerja = $post["lamabekerja"];
+        $this->lamakerja_tahun = $post["lamakerja_tahun"];
+        $this->lamakerja_bulan = $post["lamakerja_bulan"];
+        $this->tgl_lahir = $post["tgl_lahir"];
         $this->jabatan = $post["jabatan"];
         $this->gaji = $post["gaji"];
         $this->umur = $post["umur"];
@@ -62,22 +71,29 @@ class Nasabah_model extends CI_Model
         $this->kelurahan = $post["kelurahan"];
         $this->kecamatan = $post["kecamatan"];
         $this->provinsi = $post["provinsi"];
+        $this->tgl_input = $timestamp;
         return $this->db->insert($this->_table, $this);
     }
 
     public function update()
     {
+        $timestamp = date("Y-m-d H:i:s");
+
         $post = $this->input->post();
         $this->idnasabah = $post["idnasabah"];
         $this->password = $post["password"];
         $this->nik = $post["nik"];
+        $this->email = $post["email"];
+        $this->username = $post["username"];
         $this->nama = $post["nama"];
         $this->price = $post["price"];
         $this->jeniskelamin = $post["jeniskelamin"];
         $this->pernikahan = $post["pernikahan"];
         $this->notelp = $post["notelp"];
         $this->tempatkerja = $post["tempatkerja"];
-        $this->lamakerja = $post["lamakerja"];
+        $this->lamakerja_tahun = $post["lamakerja_tahun"];
+        $this->lamakerja_bulan = $post["lamakerja_bulan"];
+        $this->tgl_lahir = $post["tgl_lahir"];
         $this->jabatan = $post["jabatan"];
         $this->gaji = $post["gaji"];
         $this->umur = $post["umur"];
@@ -91,6 +107,7 @@ class Nasabah_model extends CI_Model
         $this->kelurahan = $post["kelurahan"];
         $this->kecamatan = $post["kecamatan"];
         $this->provinsi = $post["provinsi"];
+        $this->tgl_update = $timestamp;
         return $this->db->update($this->_table, $this, array('idnasabah' => $post['idnasabah']));
     }
 
@@ -101,9 +118,9 @@ class Nasabah_model extends CI_Model
 
     public function login()
     {
-        $nik = $this->input->post('nik');
+        $username = $this->input->post('username');
         $password = $this->input->post('password');
 
-        return $this->db->get_where('nasabah', ['nik' => $nik])->row_array();
+        return $this->db->get_where('nasabah', ['username' => $username])->row_array();
     }
 }

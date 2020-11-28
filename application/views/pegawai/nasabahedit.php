@@ -25,8 +25,18 @@
                                 <?= form_error('nama', '<small class="text-danger pl-3">', '</small>'); ?>
                             </div>
                             <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="text" class="form-control" name="email" placeholder="Email" required value="<?= $nasabah['email']; ?>">
+                                <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
+                            </div>
+                            <div class="form-group">
+                                <label for="username">Username</label>
+                                <input type="text" class="form-control" name="username" placeholder="Username" required value="<?= $nasabah['username']; ?>">
+                                <?= form_error('username', '<small class="text-danger pl-3">', '</small>'); ?>
+                            </div>
+                            <div class="form-group">
                                 <label for="password">Password</label>
-                                <input type="text" class="form-control" name="password" value="<?= $nasabah['password']; ?>">
+                                <input type="text" class="form-control" name="password" placeholder="password" required value="<?= $nasabah['password']; ?>">
                                 <?= form_error('password', '<small class="text-danger pl-3">', '</small>'); ?>
                             </div>
                             <div class="form-group">
@@ -77,9 +87,14 @@
                                 <?= form_error('tempatkerja', '<small class="text-danger pl-3">', '</small>'); ?>
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Lama Bekerja</label>
-                                <input type="text" class="form-control" name="lamabekerja" aria-describedby="emailHelp" placeholder="1Tahun 1 Bulan" value="<?= $nasabah['lamakerja']; ?>">
-                                <?= form_error('lamabekerja', '<small class="text-danger pl-3">', '</small>'); ?>
+                                <label for="exampleInputEmail1">Lama Bekerja (tahun)</label>
+                                <input type="text" class="form-control" name="lamakerja_tahun" aria-describedby="emailHelp" placeholder="Lama Bekerja (Tahun)" required value="<?= $nasabah['lamakerja_tahun']; ?>">
+                                <?= form_error('lamakerja_tahun', '<small class="text-danger pl-3">', '</small>'); ?>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Lama Bekerja (bulan)</label>
+                                <input type="text" class="form-control" name="lamakerja_bulan" aria-describedby="emailHelp" placeholder="Lama Bekerja (bulan)" required value="<?= $nasabah['lamakerja_bulan']; ?>">
+                                <?= form_error('lamakerja_bulan', '<small class="text-danger pl-3">', '</small>'); ?>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Jabatan</label>
@@ -101,6 +116,18 @@
                                 <input type="text" class="form-control" name="alamat" aria-describedby="emailHelp" placeholder="Alamat" required value="<?= $nasabah['alamat']; ?>">
                                 <?= form_error('alamat', '<small class="text-danger pl-3">', '</small>'); ?>
                             </div>
+                            <div class="form-group">
+                                <div class="container" style="padding-left: 0; padding-right:0;">
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            <label for="kelurahan">Tanggal Lahir</label>
+                                            <input type="date" class="form-control" name="tgl_lahir" aria-describedby="emailHelp" placeholder="Tanggal Lahir" required value="<?= $nasabah['tgl_lahir']; ?>">
+                                            <?= form_error('tgl_lahir', '<small class="text-danger pl-3">', '</small>'); ?>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="form-group">
                                 <label for="nama">Status Rumah</label>
                                 <div class="form-check">

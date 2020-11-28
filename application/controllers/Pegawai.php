@@ -65,44 +65,46 @@ class Pegawai extends CI_Controller
 
 
 
-	public function login()
-	{
-		$this->form_validation->set_rules('idpegawai', 'idpegawai', 'required|trim');
-		$this->form_validation->set_rules('password', 'Password', 'required|trim');
+	// public function login()
+	// {
+	// 	$this->form_validation->set_rules('idpegawai', 'idpegawai', 'required|trim');
+	// 	$this->form_validation->set_rules('password', 'Password', 'required|trim');
 
-		if ($this->form_validation->run() == false) {
-			$data['title'] = 'Login Page';
-			$this->load->view('pegawai/login', $data);
-		} else {
-			$idpegawai = $this->input->post('idpegawai');
-			$password = $this->input->post('password');
+	// 	if ($this->form_validation->run() == false) {
+	// 		$data['title'] = 'Login Page';
+	// 		$this->load->view('pegawai/login', $data);
+	// 	} else {
+	// 		$idpegawai = $this->input->post('idpegawai');
+	// 		$password = $this->input->post('password');
 
-			$user = $this->db->get_where('pegawai', ['idpegawai' => $this->input->post('idpegawai')])->row_array();
-			if ($user != null) {
-				// cek password yg sdh di hash
-				if ($password == $user['password']) {
-					// kirim data ke halaman selanjutnya
-					$data = [
-						'idpegawai' => $user['idpegawai'],
-					];
-					$this->session->set_userdata($data);
-					redirect('pegawai/index');
-				} else {
-					$this->session->set_flashdata('warning', 'Password Salah');
-					redirect('pegawai/login');
-				}
-			} else {
-				// user tdk ada
-				// send pesan
-				$this->session->set_flashdata('warning', 'ID Salah');
-				redirect('pegawai/login');
-			}
-		}
-	}
+	// 		$user = $this->db->get_where('pegawai', ['idpegawai' => $this->input->post('idpegawai')])->row_array();
+	// 		if ($user != null) {
+	// 			// cek password yg sdh di hash
+	// 			if ($password == $user['password']) {
+	// 				// kirim data ke halaman selanjutnya
+	// 				$data = [
+	// 					'idpegawai' => $user['idpegawai'],
+	// 				];
+	// 				$this->session->set_userdata($data);
+	// 				redirect('pegawai/index');
+	// 			} else {
+	// 				$this->session->set_flashdata('warning', 'Password Salah');
+	// 				redirect('pegawai/login');
+	// 			}
+	// 		} else {
+	// 			// user tdk ada
+	// 			// send pesan
+	// 			$this->session->set_flashdata('warning', 'ID Salah');
+	// 			redirect('pegawai/login');
+	// 		}
+	// 	}
+	// }
 
 	public function logout()
 	{
 		$this->session->unset_userdata('email');
+		$this->session->unset_userdata('username');
+		$this->session->unset_userdata('idpegawai');
 
 		// send pesan
 		$this->session->set_flashdata('message', 'Logout Berhasil');
@@ -208,6 +210,8 @@ class Pegawai extends CI_Controller
 
 	public function depositobungaupdate()
 	{
+		$pegawai = $this->db->get_where('pegawai', ['email' => $this->session->userdata('email')])->row_array();
+
 		$this->form_validation->set_rules('iddeposito', 'iddeposito', 'required|trim');
 		$this->form_validation->set_rules('bunga', 'bunga', 'required|trim');
 		$this->form_validation->set_rules('bulan', 'bulan', 'required|trim');
@@ -218,10 +222,13 @@ class Pegawai extends CI_Controller
 			// die;
 			$this->load->view('pegawai/depositobungaedit', $data);
 		} else {
+			$timestamp = date("Y-m-d H:i:s");
 			$post = $this->input->post();
 			$data = [
+				'idpegawai' => $pegawai['idpegawai'],
 				'bunga' => $post['bunga'],
 				'bulan' => $post['bulan'],
+				'tgl_update' => $timestamp,
 			];
 			$this->db->where('iddeposito', $post['iddeposito']);
 			$this->db->update('tabeldeposito', $data);
@@ -288,10 +295,16 @@ class Pegawai extends CI_Controller
 		$this->form_validation->set_rules('bunga', 'bunga', 'required|trim');
 		$this->form_validation->set_rules('bulan', 'bulan', 'required|trim');
 
+		$timestamp = date("Y-m-d H:i:s");
+		$pegawai = $this->db->get_where('pegawai', ['email' => $this->session->userdata('email')])->row_array();
+
 		$post = $this->input->post();
+		// var_dump($pegawai);
 		$data = [
+			'idpegawai' => $pegawai['idpegawai'],
 			'bunga' => $post['bunga'],
 			'bulan' => $post['bulan'],
+			'tgl_input' => $timestamp,
 		];
 
 		$this->db->insert('tabeldeposito', $data);
@@ -413,12 +426,18 @@ class Pegawai extends CI_Controller
 			$data['tabelkredit'] = $this->db->get_where('tabelkredit', ['idkredit' => $post['idkredit']])->row_array();
 			$this->load->view('pegawai/kreditbungaedit', $data);
 		} else {
+
+			$timestamp = date("Y-m-d H:i:s");
+			$pegawai = $this->db->get_where('pegawai', ['email' => $this->session->userdata('email')])->row_array();
+
 			$post = $this->input->post();
 			$data = [
+				'idpegawai' => $pegawai['idpegawai'],
 				'jumlah1' => $post['jumlah1'],
 				'jumlah2' => $post['jumlah2'],
 				'bunga' => $post['bunga'],
-				'bulan' => $post['bulan'],
+				// 'bulan' => $post['bulan'],
+				'tgl_update' => $timestamp,
 			];
 			$this->db->where('idkredit', $post['idkredit']);
 			$this->db->update('tabelkredit', $data);
@@ -440,14 +459,20 @@ class Pegawai extends CI_Controller
 		$this->form_validation->set_rules('jumlah1', 'jumlah1', 'required|trim');
 		$this->form_validation->set_rules('jumlah2', 'jumlah2', 'required|trim');
 		$this->form_validation->set_rules('bunga', 'bunga', 'required|trim');
-		$this->form_validation->set_rules('bulan', 'bulan', 'required|trim');
+		// $this->form_validation->set_rules('bulan', 'bulan', 'required|trim');
+
+
+		$timestamp = date("Y-m-d H:i:s");
+		$pegawai = $this->db->get_where('pegawai', ['email' => $this->session->userdata('email')])->row_array();
 
 		$post = $this->input->post();
 		$data = [
+			'idpegawai' => $pegawai['idpegawai'],
 			'jumlah1' => $post['jumlah1'],
 			'jumlah2' => $post['jumlah2'],
 			'bunga' => $post['bunga'],
-			'bulan' => $post['bulan'],
+			// 'bulan' => $post['bulan'],
+			'tgl_input' => $timestamp,
 		];
 
 		$this->db->insert('tabelkredit', $data);
@@ -540,7 +565,7 @@ class Pegawai extends CI_Controller
 
 		if ($this->form_validation->run() == false) {
 			$post = $this->input->post();
-			$data['tabungan'] = $this->db->get_where('tabungan', ['idpengajuantabungan' => $id])->row_array();
+			$data['tabungan'] = $this->db->get_where('tabungan', ['idpengajuantabungan' => $post['idpengajuantabungan']])->row_array();
 			// var_dump($data['tabungan']);
 			// die;
 			$this->load->view('pegawai/tabunganedit', $data);
@@ -596,10 +621,17 @@ class Pegawai extends CI_Controller
 			$data['tabeltabungan'] = $this->db->get_where('tabeltabungan', ['idtabungan' => $post['idtabungan']])->row_array();
 			$this->load->view('pegawai/tabunganbungaedit', $data);
 		} else {
+
+			$timestamp = date("Y-m-d H:i:s");
+			$pegawai = $this->db->get_where('pegawai', ['email' => $this->session->userdata('email')])->row_array();
+
+
 			$post = $this->input->post();
 			$data = [
+				'idpegawai' => $pegawai['idpegawai'],
 				'bunga' => $post['bunga'],
 				'bulan' => $post['bulan'],
+				'tgl_update' => $timestamp,
 			];
 			$this->db->where('idtabungan', $post['idtabungan']);
 			$this->db->update('tabeltabungan', $data);
@@ -614,10 +646,15 @@ class Pegawai extends CI_Controller
 		$this->form_validation->set_rules('bunga', 'bunga', 'required|trim');
 		$this->form_validation->set_rules('bulan', 'bulan', 'required|trim');
 
+		$timestamp = date("Y-m-d H:i:s");
+		$pegawai = $this->db->get_where('pegawai', ['email' => $this->session->userdata('email')])->row_array();
+
 		$post = $this->input->post();
 		$data = [
+			'idpegawai' => $pegawai['idpegawai'],
 			'bunga' => $post['bunga'],
 			'bulan' => $post['bulan'],
+			'tgl_input' => $timestamp,
 		];
 
 		$this->db->insert('tabeltabungan', $data);
@@ -677,18 +714,24 @@ class Pegawai extends CI_Controller
 
 	public function nasabahupdate()
 	{
+		$pegawai = $this->db->get_where('pegawai', ['email' => $this->session->userdata('email')])->row_array();
+
 		$this->form_validation->set_rules('nik', 'nik', 'required|trim');
 		$this->form_validation->set_rules('nama', 'nama', 'required|trim');
+		$this->form_validation->set_rules('username', 'username', 'required|trim');
+		$this->form_validation->set_rules('password', 'password', 'required|trim');
 		$this->form_validation->set_rules('jeniskelamin', 'jeniskelamin', 'required|trim');
 		$this->form_validation->set_rules('pernikahan', 'pernikahan', 'required|trim');
 		$this->form_validation->set_rules('notelp', 'notelp', 'required|trim');
 
 		$this->form_validation->set_rules('tempatkerja', 'tempatkerja', 'required|trim');
-		$this->form_validation->set_rules('lamabekerja', 'lamabekerja', 'required|trim');
+		$this->form_validation->set_rules('lamakerja_tahun', 'lamakerja_tahun', 'required|trim');
+		$this->form_validation->set_rules('lamakerja_bulan', 'lamakerja_bulan', 'required|trim');
 		$this->form_validation->set_rules('jabatan', 'jabatan', 'required|trim');
 		$this->form_validation->set_rules('gaji', 'gaji', 'required|trim');
 		$this->form_validation->set_rules('umur', 'umur', 'required|trim');
 
+		$this->form_validation->set_rules('tgl_lahir', 'tgl_lahir', 'required|trim');
 		$this->form_validation->set_rules('alamat', 'alamat', 'required|trim');
 		$this->form_validation->set_rules('statusrumah', 'statusrumah', 'required|trim');
 		$this->form_validation->set_rules('kelurahan', 'kelurahan', 'required|trim');
@@ -708,18 +751,23 @@ class Pegawai extends CI_Controller
 		} else {
 			$post = $this->input->post();
 			$data = [
+				'idpegawai' => $pegawai['idpegawai'],
 				'nik' => $post['nik'],
 				'nama' => $post['nama'],
 				'jeniskelamin' => $post['jeniskelamin'],
 				'pernikahan' => $post['pernikahan'],
 				'notelp' => $post['notelp'],
+				'username' => $post['username'],
+				'password' => $post['password'],
 
 				'tempatkerja' => $post['tempatkerja'],
-				'lamakerja' => $post['lamabekerja'],
+				'lamakerja_tahun' => $post['lamakerja_tahun'],
+				'lamakerja_bulan' => $post['lamakerja_bulan'],
 				'jabatan' => $post['jabatan'],
 				'gaji' => $post['gaji'],
 				'umur' => $post['umur'],
 
+				'tgl_lahir' => $post['tgl_lahir'],
 				'alamat' => $post['alamat'],
 				'statusrumah' => $post['statusrumah'],
 				'kelurahan' => $post['kelurahan'],

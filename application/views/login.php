@@ -8,7 +8,7 @@
                 <div class="col-md-12 col-md-offset-0">
                     <div class="animate-box">
                         <h2>Login</h2>
-                        <a class="btn btn-warning btn-sm" href="<?php echo site_url('pegawai/login') ?>">Halaman Admin</a>
+                        <!-- <a class="btn btn-warning btn-sm" href="<?php// echo site_url('pegawai/login') ?>">Halaman Admin</a> -->
                     </div>
                 </div>
             </div>
@@ -26,9 +26,9 @@
 
                 <form action="<?php echo site_url('nasabah/login') ?>" method="post">
                     <div class="form-group">
-                        <label for="nik">NIK</label>
-                        <input type="text" class="form-control" name="nik" placeholder="NIK" required>
-                        <?= form_error('nik', '<small class="text-danger pl-3">', '</small>'); ?>
+                        <label for="username">Username</label>
+                        <input type="text" class="form-control" name="username" placeholder="Username" required>
+                        <?= form_error('username', '<small class="text-danger pl-3">', '</small>'); ?>
                     </div>
                     <div class="form-group">
                         <label for="nama">Password</label>

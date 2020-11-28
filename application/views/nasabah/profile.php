@@ -33,6 +33,16 @@
                             <td style="padding: 5px;"><?= $nasabah['nama']; ?></td>
                         </tr>
                         <tr>
+                            <th style="padding: 5px;">Email</th>
+                            <td style="padding: 5px;">:</td>
+                            <td style="padding: 5px;"><?= $nasabah['email']; ?></td>
+                        </tr>
+                        <tr>
+                            <th style="padding: 5px;">Username</th>
+                            <td style="padding: 5px;">:</td>
+                            <td style="padding: 5px;"><?= $nasabah['username']; ?></td>
+                        </tr>
+                        <tr>
                             <th style="padding: 5px;">Jenis Kelamin</th>
                             <td style="padding: 5px;">:</td>
                             <td style="padding: 5px;"><?= $nasabah['jeniskelamin']; ?></td>
@@ -53,9 +63,14 @@
                             <td style="padding: 5px;"><?= $nasabah['tempatkerja']; ?></td>
                         </tr>
                         <tr>
-                            <th style="padding: 5px;">Lama Kerja</th>
+                            <th style="padding: 5px;">Lama Kerja (tahun)</th>
                             <td style="padding: 5px;">:</td>
-                            <td style="padding: 5px;"><?= $nasabah['lamakerja']; ?></td>
+                            <td style="padding: 5px;"><?= $nasabah['lamakerja_tahun']; ?></td>
+                        </tr>
+                        <tr>
+                            <th style="padding: 5px;">Lama Kerja (bulan)</th>
+                            <td style="padding: 5px;">:</td>
+                            <td style="padding: 5px;"><?= $nasabah['lamakerja_bulan']; ?></td>
                         </tr>
                         <tr>
                             <th style="padding: 5px;">Jabatan</th>
@@ -76,6 +91,11 @@
                             <th style="padding: 5px;">Alamat</th>
                             <td style="padding: 5px;">:</td>
                             <td style="padding: 5px;"><?= $nasabah['alamat']; ?></td>
+                        </tr>
+                        <tr>
+                            <th style="padding: 5px;">Tanggal Lahir</th>
+                            <td style="padding: 5px;">:</td>
+                            <td style="padding: 5px;"><?= date("d-m-Y", strtotime($nasabah['tgl_lahir'])); ?></td>
                         </tr>
                         <tr>
                             <th style="padding: 5px;">Status Rumah</th>

@@ -8,7 +8,7 @@ class Deposito extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model("Deposito_model");
-		$this->load->model("Bunga_model");
+		// $this->load->model("Bunga_model");
 		$this->load->library('form_validation');
 
 		if ($this->session->userdata('nik')) {
