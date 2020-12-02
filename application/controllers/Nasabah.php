@@ -75,7 +75,7 @@ class Nasabah extends CI_Controller
 	public function login()
 	{
 		$this->form_validation->set_rules('username', 'username', 'required|trim');
-		$this->form_validation->set_rules('password', 'Password', 'required|trim');
+		$this->form_validation->set_rules('password', 'password', 'required|trim');
 
 		if ($this->form_validation->run() == false) {
 			$data['title'] = 'Login Page';

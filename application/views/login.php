@@ -27,12 +27,12 @@
                 <form action="<?php echo site_url('nasabah/login') ?>" method="post">
                     <div class="form-group">
                         <label for="username">Username</label>
-                        <input type="text" class="form-control" name="username" placeholder="Username" required>
+                        <input type="text" class="form-control" name="username" placeholder="Username" value="<?= set_value('username') ?>">
                         <?= form_error('username', '<small class="text-danger pl-3">', '</small>'); ?>
                     </div>
                     <div class="form-group">
                         <label for="nama">Password</label>
-                        <input type="password" class="form-control" name="password" placeholder="Password">
+                        <input type="password" class="form-control" name="password" placeholder="Password" value="<?= set_value('password') ?>">
                         <?= form_error('password', '<small class="text-danger pl-3">', '</small>'); ?>
                     </div>
                     <button type="submit" class="btn btn-primary btn-block">Login</button>
