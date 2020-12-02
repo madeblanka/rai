@@ -212,9 +212,9 @@ class Pegawai extends CI_Controller
 	{
 		$pegawai = $this->db->get_where('pegawai', ['email' => $this->session->userdata('email')])->row_array();
 
-		$this->form_validation->set_rules('iddeposito', 'iddeposito', 'required|trim');
+		$this->form_validation->set_rules('iddeposito', 'id deposito', 'required|trim');
 		$this->form_validation->set_rules('bunga', 'bunga', 'required|trim');
-		$this->form_validation->set_rules('bulan', 'bulan', 'required|trim');
+		$this->form_validation->set_rules('bulan', 'jangka waktu', 'required|trim');
 		if ($this->form_validation->run() == false) {
 			$post = $this->input->post();
 			$data['tabeldeposito'] = $this->db->get_where('tabeldeposito', ['iddeposito' => $post['iddeposito']])->row_array();
@@ -293,22 +293,27 @@ class Pegawai extends CI_Controller
 	public function depositobungatambah()
 	{
 		$this->form_validation->set_rules('bunga', 'bunga', 'required|trim');
-		$this->form_validation->set_rules('bulan', 'bulan', 'required|trim');
+		$this->form_validation->set_rules('bulan', 'jangka waktu', 'required|trim');
+		if ($this->form_validation->run() == false) {
+			$data['tabeldeposito'] = $this->db->get('tabeldeposito')->result_array();
 
-		$timestamp = date("Y-m-d H:i:s");
-		$pegawai = $this->db->get_where('pegawai', ['email' => $this->session->userdata('email')])->row_array();
+			$this->load->view('pegawai/depositobunga', $data);
+		} else {
+			$timestamp = date("Y-m-d H:i:s");
+			$pegawai = $this->db->get_where('pegawai', ['email' => $this->session->userdata('email')])->row_array();
 
-		$post = $this->input->post();
-		// var_dump($pegawai);
-		$data = [
-			'idpegawai' => $pegawai['idpegawai'],
-			'bunga' => $post['bunga'],
-			'bulan' => $post['bulan'],
-			'tgl_input' => $timestamp,
-		];
+			$post = $this->input->post();
+			// var_dump($pegawai);
+			$data = [
+				'idpegawai' => $pegawai['idpegawai'],
+				'bunga' => $post['bunga'],
+				'bulan' => $post['bulan'],
+				'tgl_input' => $timestamp,
+			];
 
-		$this->db->insert('tabeldeposito', $data);
-		redirect('pegawai/depositobunga');
+			$this->db->insert('tabeldeposito', $data);
+			redirect('pegawai/depositobunga');
+		}
 	}
 
 	public function depositobungadelete($id)
@@ -416,10 +421,10 @@ class Pegawai extends CI_Controller
 
 	public function kreditbungaupdate()
 	{
-		$this->form_validation->set_rules('idkredit', 'idkredit', 'required|trim');
-		$this->form_validation->set_rules('jumlah1', 'jumlah1', 'required|trim');
-		$this->form_validation->set_rules('jumlah2', 'jumlah2', 'required|trim');
-		$this->form_validation->set_rules('bunga', 'bunga', 'required|trim');
+		$this->form_validation->set_rules('idkredit', 'id kredit', 'required|trim');
+		$this->form_validation->set_rules('jumlah1', 'jumlah minimal', 'required|trim');
+		$this->form_validation->set_rules('jumlah2', 'jumlah maksimal', 'required|trim');
+		$this->form_validation->set_rules('bunga', 'jangka waktu', 'required|trim');
 		// $this->form_validation->set_rules('bulan', 'bulan', 'required|trim');
 		if ($this->form_validation->run() == false) {
 			$post = $this->input->post();
@@ -456,27 +461,31 @@ class Pegawai extends CI_Controller
 
 	public function kreditbungatambah()
 	{
-		$this->form_validation->set_rules('jumlah1', 'jumlah1', 'required|trim');
-		$this->form_validation->set_rules('jumlah2', 'jumlah2', 'required|trim');
+		$this->form_validation->set_rules('jumlah1', 'plapon minimal', 'required|trim');
+		$this->form_validation->set_rules('jumlah2', 'plapon maksimal', 'required|trim');
 		$this->form_validation->set_rules('bunga', 'bunga', 'required|trim');
 		// $this->form_validation->set_rules('bulan', 'bulan', 'required|trim');
 
+		if ($this->form_validation->run() == false) {
+			$data['tabelkredit'] = $this->db->get('tabelkredit')->result_array();
+			$this->load->view('pegawai/kreditbunga', $data);
+		} else {
+			$timestamp = date("Y-m-d H:i:s");
+			$pegawai = $this->db->get_where('pegawai', ['email' => $this->session->userdata('email')])->row_array();
 
-		$timestamp = date("Y-m-d H:i:s");
-		$pegawai = $this->db->get_where('pegawai', ['email' => $this->session->userdata('email')])->row_array();
+			$post = $this->input->post();
+			$data = [
+				'idpegawai' => $pegawai['idpegawai'],
+				'jumlah1' => $post['jumlah1'],
+				'jumlah2' => $post['jumlah2'],
+				'bunga' => $post['bunga'],
+				// 'bulan' => $post['bulan'],
+				'tgl_input' => $timestamp,
+			];
 
-		$post = $this->input->post();
-		$data = [
-			'idpegawai' => $pegawai['idpegawai'],
-			'jumlah1' => $post['jumlah1'],
-			'jumlah2' => $post['jumlah2'],
-			'bunga' => $post['bunga'],
-			// 'bulan' => $post['bulan'],
-			'tgl_input' => $timestamp,
-		];
-
-		$this->db->insert('tabelkredit', $data);
-		redirect('pegawai/kreditbunga');
+			$this->db->insert('tabelkredit', $data);
+			redirect('pegawai/kreditbunga');
+		}
 	}
 
 	public function kreditlaporan()
@@ -613,9 +622,9 @@ class Pegawai extends CI_Controller
 
 	public function tabunganbungaupdate()
 	{
-		$this->form_validation->set_rules('idtabungan', 'idtabungan', 'required|trim');
+		$this->form_validation->set_rules('idtabungan', 'id tabungan', 'required|trim');
 		$this->form_validation->set_rules('bunga', 'bunga', 'required|trim');
-		$this->form_validation->set_rules('bulan', 'bulan', 'required|trim');
+		$this->form_validation->set_rules('bulan', 'jangka waktu', 'required|trim');
 		if ($this->form_validation->run() == false) {
 			$post = $this->input->post();
 			$data['tabeltabungan'] = $this->db->get_where('tabeltabungan', ['idtabungan' => $post['idtabungan']])->row_array();
@@ -644,21 +653,25 @@ class Pegawai extends CI_Controller
 	public function tabunganbungatambah()
 	{
 		$this->form_validation->set_rules('bunga', 'bunga', 'required|trim');
-		$this->form_validation->set_rules('bulan', 'bulan', 'required|trim');
+		$this->form_validation->set_rules('bulan', 'jangka waktu', 'required|trim');
+		if ($this->form_validation->run() == false) {
+			$data['tabeltabungan'] = $this->db->get('tabeltabungan')->result_array();
+			$this->load->view('pegawai/tabunganbunga', $data);
+		} else {
+			$timestamp = date("Y-m-d H:i:s");
+			$pegawai = $this->db->get_where('pegawai', ['email' => $this->session->userdata('email')])->row_array();
 
-		$timestamp = date("Y-m-d H:i:s");
-		$pegawai = $this->db->get_where('pegawai', ['email' => $this->session->userdata('email')])->row_array();
+			$post = $this->input->post();
+			$data = [
+				'idpegawai' => $pegawai['idpegawai'],
+				'bunga' => $post['bunga'],
+				'bulan' => $post['bulan'],
+				'tgl_input' => $timestamp,
+			];
 
-		$post = $this->input->post();
-		$data = [
-			'idpegawai' => $pegawai['idpegawai'],
-			'bunga' => $post['bunga'],
-			'bulan' => $post['bulan'],
-			'tgl_input' => $timestamp,
-		];
-
-		$this->db->insert('tabeltabungan', $data);
-		redirect('pegawai/tabunganbunga');
+			$this->db->insert('tabeltabungan', $data);
+			redirect('pegawai/tabunganbunga');
+		}
 	}
 
 	public function tabunganbungadelete($id)

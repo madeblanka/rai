@@ -73,12 +73,12 @@
                 <form action="<?php echo site_url('pegawai/tabunganbungatambah/') ?>" method="post">
                     <div class="form-group">
                         <label for="bunga">Persentase Bunga (%)</label>
-                        <input type="text" class="form-control" name="bunga" required>
+                        <input type="text" class="form-control" name="bunga">
                         <?= form_error('bunga', '<small class="text-danger pl-3">', '</small>'); ?>
                     </div>
                     <div class="form-group">
                         <label for="bulan">Jangka Waktu</label>
-                        <input type="text" class="form-control" name="bulan" required>
+                        <input type="text" class="form-control" name="bulan">
                         <?= form_error('bulan', '<small class="text-danger pl-3">', '</small>'); ?>
                     </div>
             </div>

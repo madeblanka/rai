@@ -13,15 +13,15 @@
                 <div class="card-body">
                     <div class="col-md-6">
                         <form action="<?php echo site_url('pegawai/tabunganbungaupdate/') ?>" method="post">
-                            <input type="hidden" class="form-control" name="idtabungan" value="<?= $tabeltabungan['idtabungan'] ?>" required>
+                            <input type="hidden" class="form-control" name="idtabungan" value="<?= $tabeltabungan['idtabungan'] ?>">
                             <div class="form-group">
                                 <label for="bunga">Bunga (%)</label>
-                                <input type="text" class="form-control" name="bunga" value="<?= $tabeltabungan['bunga'] ?>" required>
+                                <input type="text" class="form-control" name="bunga" value="<?= $tabeltabungan['bunga'] ?>">
                                 <?= form_error('bunga', '<small class="text-danger pl-3">', '</small>'); ?>
                             </div>
                             <div class="form-group">
                                 <label for="bulan">Jangka Waktu (Bulan)</label>
-                                <input type="text" class="form-control" name="bulan" value="<?= $tabeltabungan['bulan'] ?>" required>
+                                <input type="text" class="form-control" name="bulan" value="<?= $tabeltabungan['bulan'] ?>">
                                 <?= form_error('bulan', '<small class="text-danger pl-3">', '</small>'); ?>
                             </div>
 

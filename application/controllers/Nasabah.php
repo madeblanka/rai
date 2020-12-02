@@ -20,12 +20,45 @@ class Nasabah extends CI_Controller
 	}
 	public function add()
 	{
-		$nasabah = $this->Nasabah_model->save();
-		if ($nasabah == true) {
-			$this->session->set_flashdata('message', 'Data Berhasil Disimpan');
-			redirect("nasabah/login");
-		} else {
+		$this->form_validation->set_rules('nik', 'nik', 'required|trim');
+		$this->form_validation->set_rules('nama', 'nama', 'required|trim');
+		$this->form_validation->set_rules('email', 'email', 'required|trim');
+		$this->form_validation->set_rules('username', 'username', 'required|trim');
+		$this->form_validation->set_rules('password', 'password', 'required|trim');
+		$this->form_validation->set_rules('jeniskelamin', 'jeniskelamin', 'required|trim');
+		$this->form_validation->set_rules('pernikahan', 'pernikahan', 'required|trim');
+		$this->form_validation->set_rules('notelp', 'no telp', 'required|trim');
+
+		$this->form_validation->set_rules('tempatkerja', 'tempat kerja', 'required|trim');
+		$this->form_validation->set_rules('lamakerja_bulan', 'lama kerja (bulan)', 'required|trim');
+		$this->form_validation->set_rules('lamakerja_tahun', 'lama kerja (tahun)', 'required|trim');
+		$this->form_validation->set_rules('jabatan', 'jabatan', 'required|trim');
+		$this->form_validation->set_rules('gaji', 'gaji', 'required|trim');
+		$this->form_validation->set_rules('umur', 'umur', 'required|trim');
+
+		$this->form_validation->set_rules('tgl_lahir', 'tanggal lahir', 'required|trim');
+		$this->form_validation->set_rules('alamat', 'alamat', 'required|trim');
+		$this->form_validation->set_rules('statusrumah', 'status rumah', 'required|trim');
+		$this->form_validation->set_rules('kelurahan', 'kelurahan', 'required|trim');
+		$this->form_validation->set_rules('kecamatan', 'kecamatan', 'required|trim');
+		$this->form_validation->set_rules('provinsi', 'provinsi', 'required|trim');
+
+		$this->form_validation->set_rules('namakerabat', 'nama kerabat', 'required|trim');
+		$this->form_validation->set_rules('statuskerabat', 'status kerabat', 'required|trim');
+		$this->form_validation->set_rules('alamatkerabat', 'alamat kerabat', 'required|trim');
+		$this->form_validation->set_rules('pekerjaankerabat', 'pekerjaan kerabat', 'required|trim');
+		$this->form_validation->set_rules('perusahaankerabat', 'perusahaan kerabat', 'required|trim');
+
+		if ($this->form_validation->run() == false) {
 			$this->load->view("daftar");
+		} else {
+			$nasabah = $this->Nasabah_model->save();
+			if ($nasabah == true) {
+				$this->session->set_flashdata('message', 'Data Berhasil Disimpan');
+				redirect("nasabah/login");
+			} else {
+				$this->load->view("daftar");
+			}
 		}
 	}
 	public function edit($idnasabah = null)
@@ -158,28 +191,32 @@ class Nasabah extends CI_Controller
 	{
 		$this->form_validation->set_rules('nik', 'nik', 'required|trim');
 		$this->form_validation->set_rules('nama', 'nama', 'required|trim');
+		$this->form_validation->set_rules('email', 'email', 'required|trim');
+		$this->form_validation->set_rules('username', 'username', 'required|trim');
+		$this->form_validation->set_rules('password', 'password', 'required|trim');
 		$this->form_validation->set_rules('jeniskelamin', 'jeniskelamin', 'required|trim');
 		$this->form_validation->set_rules('pernikahan', 'pernikahan', 'required|trim');
-		$this->form_validation->set_rules('notelp', 'notelp', 'required|trim');
+		$this->form_validation->set_rules('notelp', 'no telp', 'required|trim');
 
-		$this->form_validation->set_rules('tempatkerja', 'tempatkerja', 'required|trim');
-		$this->form_validation->set_rules('lamabekerja', 'lamabekerja', 'required|trim');
+		$this->form_validation->set_rules('tempatkerja', 'tempat kerja', 'required|trim');
+		$this->form_validation->set_rules('lamakerja_bulan', 'lama kerja (bulan)', 'required|trim');
+		$this->form_validation->set_rules('lamakerja_tahun', 'lama kerja (tahun)', 'required|trim');
 		$this->form_validation->set_rules('jabatan', 'jabatan', 'required|trim');
 		$this->form_validation->set_rules('gaji', 'gaji', 'required|trim');
 		$this->form_validation->set_rules('umur', 'umur', 'required|trim');
 
+		$this->form_validation->set_rules('tgl_lahir', 'tanggal lahir', 'required|trim');
 		$this->form_validation->set_rules('alamat', 'alamat', 'required|trim');
-		$this->form_validation->set_rules('statusrumah', 'statusrumah', 'required|trim');
+		$this->form_validation->set_rules('statusrumah', 'status rumah', 'required|trim');
 		$this->form_validation->set_rules('kelurahan', 'kelurahan', 'required|trim');
 		$this->form_validation->set_rules('kecamatan', 'kecamatan', 'required|trim');
 		$this->form_validation->set_rules('provinsi', 'provinsi', 'required|trim');
 
-		$this->form_validation->set_rules('namakerabat', 'namakerabat', 'required|trim');
-		$this->form_validation->set_rules('statuskerabat', 'statuskerabat', 'required|trim');
-		$this->form_validation->set_rules('alamatkerabat', 'alamatkerabat', 'required|trim');
-		$this->form_validation->set_rules('pekerjaankerabat', 'pekerjaankerabat', 'required|trim');
-		$this->form_validation->set_rules('perusahaankerabat', 'perusahaankerabat', 'required|trim');
-
+		$this->form_validation->set_rules('namakerabat', 'nama kerabat', 'required|trim');
+		$this->form_validation->set_rules('statuskerabat', 'status kerabat', 'required|trim');
+		$this->form_validation->set_rules('alamatkerabat', 'alamat kerabat', 'required|trim');
+		$this->form_validation->set_rules('pekerjaankerabat', 'pekerjaan kerabat', 'required|trim');
+		$this->form_validation->set_rules('perusahaankerabat', 'perusahaan kerabat', 'required|trim');
 
 		$post = $this->input->post();
 		$data = [

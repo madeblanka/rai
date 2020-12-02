@@ -31,10 +31,10 @@ class Deposito extends CI_Controller
 		}
 		$data['deposito'] = $this->db->get('tabeldeposito')->result_array();
 
-		$this->form_validation->set_rules('ahliwaris', 'ahliwaris', 'required|trim');
-		$this->form_validation->set_rules('statusahliwaris', 'statusahliwaris', 'required|trim');
+		$this->form_validation->set_rules('ahliwaris', 'ahli waris', 'required|trim');
+		$this->form_validation->set_rules('statusahliwaris', 'status ahli waris', 'required|trim');
 		$this->form_validation->set_rules('jumlah', 'jumlah', 'required|trim|greater_than[4999999]');
-		$this->form_validation->set_rules('bunga', 'bunga', 'required|trim');
+		$this->form_validation->set_rules('bunga', 'jenis deposito', 'required|trim');
 		$this->form_validation->set_rules('tanggal', 'tanggal', 'required|trim');
 
 		if ($this->form_validation->run() == false) {

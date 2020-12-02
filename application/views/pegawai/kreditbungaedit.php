@@ -13,15 +13,15 @@
                 <div class="card-body">
                     <div class="col-md-6">
                         <form action="<?php echo site_url('pegawai/kreditbungaupdate/') ?>" method="post">
-                            <input type="hidden" class="form-control" name="idkredit" value="<?= $tabelkredit['idkredit'] ?>" required>
+                            <input type="hidden" class="form-control" name="idkredit" value="<?= $tabelkredit['idkredit'] ?>">
                             <div class="form-group">
                                 <label for="jumlah1">Plapon Minimal</label>
-                                <input type="text" class="form-control" name="jumlah1" value="<?= $tabelkredit['jumlah1'] ?>" required>
+                                <input type="text" class="form-control" name="jumlah1" value="<?= $tabelkredit['jumlah1'] ?>">
                                 <?= form_error('jumlah1', '<small class="text-danger pl-3">', '</small>'); ?>
                             </div>
                             <div class="form-group">
                                 <label for="jumlah2">Plapon Maksimal</label>
-                                <input type="text" class="form-control" name="jumlah2" value="<?= $tabelkredit['jumlah2'] ?>" required>
+                                <input type="text" class="form-control" name="jumlah2" value="<?= $tabelkredit['jumlah2'] ?>">
                                 <?= form_error('jumlah2', '<small class="text-danger pl-3">', '</small>'); ?>
                             </div>
                             <!-- <div class="form-group">

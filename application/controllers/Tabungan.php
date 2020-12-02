@@ -29,10 +29,10 @@ class Tabungan extends CI_Controller
 		}
 		$data['tabungan'] = $this->db->get('tabeltabungan')->result_array();
 
-		$this->form_validation->set_rules('ahliwaris', 'ahliwaris', 'required|trim');
-		$this->form_validation->set_rules('statusahliwaris', 'statusahliwaris', 'required|trim');
+		$this->form_validation->set_rules('ahliwaris', 'ahli waris', 'required|trim');
+		$this->form_validation->set_rules('statusahliwaris', 'status ahli waris', 'required|trim');
 		$this->form_validation->set_rules('jumlah', 'jumlah', 'required|trim');
-		$this->form_validation->set_rules('bunga', 'bunga', 'required|trim');
+		$this->form_validation->set_rules('bunga', 'jangka waktu', 'required|trim');
 		$this->form_validation->set_rules('tanggal', 'tanggal', 'required|trim');
 
 		if ($this->form_validation->run() == false) {

@@ -21,27 +21,27 @@
             <form action="<?php echo site_url('nasabah/add') ?>" method="post">
                 <div class="form-group">
                     <label for="nik">NIK</label>
-                    <input type="text" class="form-control" name="nik" placeholder="NIK" required>
+                    <input type="text" class="form-control" name="nik" placeholder="NIK">
                     <?= form_error('nik', '<small class="text-danger pl-3">', '</small>'); ?>
                 </div>
                 <div class="form-group">
                     <label for="nama">Nama</label>
-                    <input type="text" class="form-control" name="nama" placeholder="Nama Lengkap" required>
+                    <input type="text" class="form-control" name="nama" placeholder="Nama Lengkap">
                     <?= form_error('nama', '<small class="text-danger pl-3">', '</small>'); ?>
                 </div>
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="text" class="form-control" name="email" placeholder="Email" required>
+                    <input type="text" class="form-control" name="email" placeholder="Email">
                     <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
                 </div>
                 <div class="form-group">
                     <label for="username">Username</label>
-                    <input type="text" class="form-control" name="username" placeholder="Username" required>
+                    <input type="text" class="form-control" name="username" placeholder="Username">
                     <?= form_error('username', '<small class="text-danger pl-3">', '</small>'); ?>
                 </div>
                 <div class="form-group">
                     <label for="password">Password</label>
-                    <input type="password" class="form-control" name="password" placeholder="password" required>
+                    <input type="password" class="form-control" name="password" placeholder="password">
                     <?= form_error('password', '<small class="text-danger pl-3">', '</small>'); ?>
                 </div>
                 <div class="form-group">
@@ -83,42 +83,42 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1">No Handphone</label>
-                    <input type="number" class="form-control" name="notelp" aria-describedby="emailHelp" placeholder="08xxxxx" required>
+                    <input type="number" class="form-control" name="notelp" aria-describedby="emailHelp" placeholder="08xxxxx">
                     <?= form_error('notelp', '<small class="text-danger pl-3">', '</small>'); ?>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Tempat Kerja</label>
-                    <input type="text" class="form-control" name="tempatkerja" placeholder="PT.../ CV... / UD..." required>
+                    <input type="text" class="form-control" name="tempatkerja" placeholder="PT.../ CV... / UD...">
                     <?= form_error('tempatkerja', '<small class="text-danger pl-3">', '</small>'); ?>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Lama Bekerja (tahun)</label>
-                    <input type="text" class="form-control" name="lamakerja_tahun" aria-describedby="emailHelp" placeholder="Lama Bekerja (Tahun)" required>
+                    <input type="text" class="form-control" name="lamakerja_tahun" aria-describedby="emailHelp" placeholder="Lama Bekerja (Tahun)">
                     <?= form_error('lamakerja_tahun', '<small class="text-danger pl-3">', '</small>'); ?>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Lama Bekerja (bulan)</label>
-                    <input type="text" class="form-control" name="lamakerja_bulan" aria-describedby="emailHelp" placeholder="Lama Bekerja (bulan)" required>
+                    <input type="text" class="form-control" name="lamakerja_bulan" aria-describedby="emailHelp" placeholder="Lama Bekerja (bulan)">
                     <?= form_error('lamakerja_bulan', '<small class="text-danger pl-3">', '</small>'); ?>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Jabatan</label>
-                    <input type="text" class="form-control" name="jabatan" placeholder="Jabatan" required>
+                    <input type="text" class="form-control" name="jabatan" placeholder="Jabatan">
                     <?= form_error('jabatan', '<small class="text-danger pl-3">', '</small>'); ?>
                 </div>
                 <div class="form-group">
                     <label for="pendapatan">Pendapatan Perbulan</label>
-                    <input type="number" class="form-control" name="gaji" aria-describedby="emailHelp" placeholder="xxx.xxx.xxx" required>
+                    <input type="number" class="form-control" name="gaji" aria-describedby="emailHelp" placeholder="xxx.xxx.xxx">
                     <?= form_error('gaji', '<small class="text-danger pl-3">', '</small>'); ?>
                 </div>
                 <div class="form-group">
                     <label for="umur">Umur</label>
-                    <input type="number" class="form-control" name="umur" placeholder="xx" required>
+                    <input type="number" class="form-control" name="umur" placeholder="xx">
                     <?= form_error('umur', '<small class="text-danger pl-3">', '</small>'); ?>
                 </div>
                 <div class="form-group">
                     <label for="kelurahan">Alamat</label>
-                    <input type="text" class="form-control" name="alamat" aria-describedby="emailHelp" placeholder="Alamat" required>
+                    <input type="text" class="form-control" name="alamat" aria-describedby="emailHelp" placeholder="Alamat">
                     <?= form_error('alamat', '<small class="text-danger pl-3">', '</small>'); ?>
                 </div>
                 <div class="form-group">
@@ -126,7 +126,7 @@
                         <div class="row">
                             <div class="col-md-3">
                                 <label for="kelurahan">Tanggal Lahir</label>
-                                <input type="date" class="form-control" name="tgl_lahir" aria-describedby="emailHelp" placeholder="Tanggal Lahir" required>
+                                <input type="date" class="form-control" name="tgl_lahir" aria-describedby="emailHelp" placeholder="Tanggal Lahir">
                                 <?= form_error('tgl_lahir', '<small class="text-danger pl-3">', '</small>'); ?>
                             </div>
                         </div>
@@ -156,42 +156,42 @@
                 </div>
                 <div class="form-group">
                     <label for="kelurahan">Kelurahan</label>
-                    <input type="text" class="form-control" name="kelurahan" aria-describedby="emailHelp" placeholder="Kelurahan" required>
+                    <input type="text" class="form-control" name="kelurahan" aria-describedby="emailHelp" placeholder="Kelurahan">
                     <?= form_error('kelurahan', '<small class="text-danger pl-3">', '</small>'); ?>
                 </div>
                 <div class="form-group">
                     <label for="kecamatan">Kecamatan</label>
-                    <input type="text" class="form-control" name="kecamatan" placeholder="Kecamatan" required>
+                    <input type="text" class="form-control" name="kecamatan" placeholder="Kecamatan">
                     <?= form_error('kecamatan', '<small class="text-danger pl-3">', '</small>'); ?>
                 </div>
                 <div class="form-group">
                     <label for="provinsi">Provinsi</label>
-                    <input type="text" class="form-control" name="provinsi" aria-describedby="emailHelp" placeholder="Bali " required>
+                    <input type="text" class="form-control" name="provinsi" aria-describedby="emailHelp" placeholder="Bali ">
                     <?= form_error('provinsi', '<small class="text-danger pl-3">', '</small>'); ?>
                 </div>
                 <div class="form-group">
                     <label for="namakerabat">Nama Kerabat</label>
-                    <input type="text" class="form-control" name="namakerabat" placeholder="Nama Kerabat" required>
+                    <input type="text" class="form-control" name="namakerabat" placeholder="Nama Kerabat">
                     <?= form_error('namakerabat', '<small class="text-danger pl-3">', '</small>'); ?>
                 </div>
                 <div class="form-group">
                     <label for="statuskerabat">Status Kerabat</label>
-                    <input type="text" class="form-control" name="statuskerabat" aria-describedby="emailHelp" placeholder="Ex: Sepupu / Tante / Paman" required>
+                    <input type="text" class="form-control" name="statuskerabat" aria-describedby="emailHelp" placeholder="Ex: Sepupu / Tante / Paman">
                     <?= form_error('statuskerabat', '<small class="text-danger pl-3">', '</small>'); ?>
                 </div>
                 <div class="form-group">
                     <label for="alamatkerabat">Alamat Kerabat</label>
-                    <input type="text" class="form-control" name="alamatkerabat" placeholder="Alamat Kerabat" required>
+                    <input type="text" class="form-control" name="alamatkerabat" placeholder="Alamat Kerabat">
                     <?= form_error('alamatkerabat', '<small class="text-danger pl-3">', '</small>'); ?>
                 </div>
                 <div class="form-group">
                     <label for="pekerjaankerabat">Pekerjaan Kerabat</label>
-                    <input type="text" class="form-control" name="pekerjaankerabat" aria-describedby="emailHelp" placeholder="Pekerjaan Kerabat" required>
+                    <input type="text" class="form-control" name="pekerjaankerabat" aria-describedby="emailHelp" placeholder="Pekerjaan Kerabat">
                     <?= form_error('pekerjaankerabat', '<small class="text-danger pl-3">', '</small>'); ?>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Nama Perusahaan Tempat Kerabat Bekerja</label>
-                    <input type="text" class="form-control" name="perusahaankerabat" placeholder="Nama Perusahaan" required>
+                    <input type="text" class="form-control" name="perusahaankerabat" placeholder="Nama Perusahaan">
                     <?= form_error('perusahaankerabat', '<small class="text-danger pl-3">', '</small>'); ?>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>

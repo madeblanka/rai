@@ -12,7 +12,7 @@ class Tabeldeposito extends CI_Controller
     public function deposito()
     {
         $this->form_validation->set_rules('jumlah', 'jumlah', 'required|trim|greater_than[4999999]');
-        $this->form_validation->set_rules('bunga', 'bunga', 'required|trim');
+        $this->form_validation->set_rules('bunga', 'jenis deposito', 'required|trim');
 
         if ($this->form_validation->run() == false) {
             $data['deposito'] = $this->db->get('tabeldeposito')->result_array();

@@ -15,7 +15,7 @@ class Tabeltabungan extends CI_Controller
         // $this->load->view('perhitungan/tabungan',$data);
 
         $this->form_validation->set_rules('jumlah', 'jumlah', 'required|trim|greater_than[10000]');
-        $this->form_validation->set_rules('bunga', 'bunga', 'required|trim');
+        $this->form_validation->set_rules('bunga', 'jangka waktu', 'required|trim');
 
         if ($this->form_validation->run() == false) {
             $data['tabungan'] = $this->db->get('tabeltabungan')->result_array();

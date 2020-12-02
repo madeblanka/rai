@@ -26,7 +26,7 @@ class Kredit extends CI_Controller
 		}
 
 		$this->form_validation->set_rules('jumlah', 'jumlah', 'required|trim|greater_than[999999]');
-		$this->form_validation->set_rules('lama', 'lama', 'required|trim|less_than[61]');
+		$this->form_validation->set_rules('lama', 'lama kredit', 'required|trim|less_than[61]');
 		$this->form_validation->set_rules('tanggal', 'tanggal', 'required|trim');
 
 		if ($this->form_validation->run() == false) {

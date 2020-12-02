@@ -26,11 +26,11 @@
 				<form action="<?php echo site_url('tabeltabungan/tabungan') ?>" method="post">
 					<div class="form-group">
 						<label for="jumlah">Jumlah Tabungan</label>
-						<input type="text" class="form-control" name="jumlah" placeholder="Rp." required value="<?= set_value('jumlah') ?>">
+						<input type="text" class="form-control" name="jumlah" placeholder="Rp."  value="<?= set_value('jumlah') ?>">
 						<?= form_error('jumlah', '<small class="text-danger pl-3">', '</small>'); ?>
 					</div>
 					<div class="form-group">
-						<select class="form-control" id="" name="bunga" required>
+						<select class="form-control" id="" name="bunga" >
 							<option value="">Pilih Jangka Waktu</option>
 							<?php foreach ($tabungan as $t) : ?>
 								<?php if (isset($idtabungan)) { ?>
@@ -40,6 +40,7 @@
 								<?php } ?>
 							<?php endforeach; ?>
 						</select>
+						<?= form_error('bunga', '<small class="text-danger pl-3">', '</small>'); ?>
 					</div>
 					<button type="submit" class="btn btn-primary">Submit</button>
 				</form>

@@ -26,11 +26,25 @@
 				<form action="<?php echo site_url('tabeldeposito/deposito') ?>" method="post">
 					<div class="form-group">
 						<label for="jumlah">Jumlah Deposito</label>
-						<input type="text" class="form-control" name="jumlah" placeholder="Rp." required value="<?= set_value('jumlah') ?>">
+						<input type="text" class="form-control" name="jumlah" placeholder="Rp."  value="<?= set_value('jumlah') ?>">
 						<?= form_error('jumlah', '<small class="text-danger pl-3">', '</small>'); ?>
 					</div>
+					<!-- <div class="form-group">
+                        <label for="">Jenis Deposito</label>
+                        <select class="form-control" id="" name="bunga">
+                            <option value="">Pilih Jenis Deposito</option>
+                            <?php foreach ($deposito as $d) : ?>
+                                <?php if ($d['iddeposito'] > 1) : ?>
+                                    <option value="<?= $d['iddeposito'] ?>"><?= $d['bulan'] ?></option>
+                                <?php endif; ?>
+                            <?php endforeach; ?>
+                        </select>
+                        <?= form_error('bunga', '<small class="text-danger pl-3">', '</small>'); ?>
+                    </div> -->
+
+
 					<div class="form-group">
-						<select class="form-control" id="" name="bunga" required>
+						<select class="form-control" id="" name="bunga" >
 							<option value="">Pilih Jenis Deposito</option>
 							<?php foreach ($deposito as $d) : ?>
 								<?php if (isset($iddeposito)) { ?>
@@ -40,6 +54,7 @@
 								<?php } ?>
 							<?php endforeach; ?>
 						</select>
+						<?= form_error('bunga', '<small class="text-danger pl-3">', '</small>'); ?>
 					</div>
 
 					<button type="submit" class="btn btn-primary">Submit</button>

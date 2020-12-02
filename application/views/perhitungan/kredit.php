@@ -26,12 +26,12 @@
 				<form action="<?php echo site_url('tabelkredit/kredit') ?>" method="post">
 					<div class="form-group">
 						<label for="jumlah">Jumlah Pinjaman</label>
-						<input type="text" class="form-control" name="jumlah" placeholder="Rp." required value="<?= set_value('jumlah') ?>">
+						<input type="text" class="form-control" name="jumlah" placeholder="Rp." value="<?= set_value('jumlah') ?>">
 						<?= form_error('jumlah', '<small class="text-danger pl-3">', '</small>'); ?>
 					</div>
 					<div class="form-group">
 						<label for="lama">Lama Pinjaman</label>
-						<input type="text" class="form-control" name="lama" placeholder="Bulan" value="<?= set_value('lama') ?>" required>
+						<input type="text" class="form-control" name="lama" placeholder="Bulan" value="<?= set_value('lama') ?>">
 						<?= form_error('lama', '<small class="text-danger pl-3">', '</small>'); ?>
 					</div>
 					<button type="submit" class="btn btn-primary">Submit</button>

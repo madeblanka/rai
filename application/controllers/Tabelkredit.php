@@ -13,7 +13,7 @@ class Tabelkredit extends CI_Controller
     public function kredit()
     {
         $this->form_validation->set_rules('jumlah', 'jumlah', 'required|trim|greater_than[999999]');
-        $this->form_validation->set_rules('lama', 'lama', 'required|trim|less_than[61]');
+        $this->form_validation->set_rules('lama', 'lama pinjaman', 'required|trim|less_than[61]');
         if ($this->form_validation->run() == false) {
             $this->load->view('perhitungan/kredit');
         } else {
