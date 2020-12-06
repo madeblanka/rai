@@ -36,14 +36,21 @@
             margin-left: 15px;
             margin-bottom: 15px;
         }
+
+        .white {
+            color: white;
+        }
     </style>
 </head>
 
 <body>
     <h3 class="header">Laporan Nasabah</h3>
     <p class="">(<?= $nasabah['nik']; ?>) </p>
-    <p><?= $nasabah['nama']; ?></p>
-    <p class="" style="margin-bottom: 15px;"><?= $nasabah['alamat']; ?></p>
+    <p>Nama <span class="white">aaaaaaaaa..</span> : <?= $nasabah['nama']; ?></p>
+    <p>Status <span class="white">aaaaaaaaa.</span> : <?= $nasabah['status']; ?></p>
+    <p>Ahli Waris <span class="white">aaaa.aa</span> : <?= $nasabah['ahliwaris']; ?></p>
+    <p>Status Ahli Waris <span class="white">a</span> : <?= $nasabah['statusahliwaris']; ?></p>
+    <p class="" style="margin-bottom: 15px;">Alamat <span class="white">aaaaaaaaa</span> : <?= $nasabah['alamat']; ?></p>
 
     <?php if (!empty($deposito)) { ?>
         <h4 class="">Deposito</h4>

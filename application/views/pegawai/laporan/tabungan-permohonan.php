@@ -81,11 +81,6 @@
             <td><?= $tabungan['bunga']; ?> %</td>
         </tr>
         <tr>
-            <td>Ahli Waris</td>
-            <td>:</td>
-            <td><?= $tabungan['ahliwaris']; ?> </td>
-        </tr>
-        <tr>
             <td>Status</td>
             <td>:</td>
             <td><?= $tabungan['status']; ?></td>

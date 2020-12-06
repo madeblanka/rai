@@ -32,11 +32,7 @@
                             <td style="padding: 5px;">:</td>
                             <td style="padding: 5px;"><?= $nasabah['nama']; ?></td>
                         </tr>
-                        <tr>
-                            <th style="padding: 5px;">Email</th>
-                            <td style="padding: 5px;">:</td>
-                            <td style="padding: 5px;"><?= $nasabah['email']; ?></td>
-                        </tr>
+
                         <tr>
                             <th style="padding: 5px;">Username</th>
                             <td style="padding: 5px;">:</td>
@@ -82,11 +78,7 @@
                             <td style="padding: 5px;">:</td>
                             <td style="padding: 5px;"><?= $nasabah['gaji']; ?></td>
                         </tr>
-                        <tr>
-                            <th style="padding: 5px;">Umur</th>
-                            <td style="padding: 5px;">:</td>
-                            <td style="padding: 5px;"><?= $nasabah['umur']; ?></td>
-                        </tr>
+
                         <tr>
                             <th style="padding: 5px;">Alamat</th>
                             <td style="padding: 5px;">:</td>
@@ -107,11 +99,7 @@
                             <td style="padding: 5px;">:</td>
                             <td style="padding: 5px;"><?= $nasabah['namakerabat']; ?></td>
                         </tr>
-                        <tr>
-                            <th style="padding: 5px;">Status Kerabat</th>
-                            <td style="padding: 5px;">:</td>
-                            <td style="padding: 5px;"><?= $nasabah['statuskerabat']; ?></td>
-                        </tr>
+
                         <tr>
                             <th style="padding: 5px;">Alamat Kerabat</th>
                             <td style="padding: 5px;">:</td>
@@ -122,25 +110,21 @@
                             <td style="padding: 5px;">:</td>
                             <td style="padding: 5px;"><?= $nasabah['pekerjaankerabat']; ?></td>
                         </tr>
+
                         <tr>
-                            <th style="padding: 5px;">Perusahaan Kerabat</th>
+                            <th style="padding: 5px;">Ahli Waris</th>
                             <td style="padding: 5px;">:</td>
-                            <td style="padding: 5px;"><?= $nasabah['perusahaankerabat']; ?></td>
+                            <td style="padding: 5px;"><?= $nasabah['ahliwaris']; ?></td>
                         </tr>
                         <tr>
-                            <th style="padding: 5px;">Kelurahan</th>
+                            <th style="padding: 5px;">Status Ahli Waris</th>
                             <td style="padding: 5px;">:</td>
-                            <td style="padding: 5px;"><?= $nasabah['kelurahan']; ?></td>
+                            <td style="padding: 5px;"><?= $nasabah['statusahliwaris']; ?></td>
                         </tr>
                         <tr>
-                            <th style="padding: 5px;">Kecamatan</th>
+                            <th style="padding: 5px;">Status Nasabah</th>
                             <td style="padding: 5px;">:</td>
-                            <td style="padding: 5px;"><?= $nasabah['kecamatan']; ?></td>
-                        </tr>
-                        <tr>
-                            <th style="padding: 5px;">Provinsi</th>
-                            <td style="padding: 5px;">:</td>
-                            <td style="padding: 5px;"><?= $nasabah['provinsi']; ?></td>
+                            <td style="padding: 5px;"><?= $nasabah['status']; ?></td>
                         </tr>
                     </table>
                     <!-- <a href="<?php// echo site_url('nasabah/nasabahedit/') ?>" class="btn btn-small btn-warning" style="margin-top: 30px;"><i class="fas fa-edit"></i> Edit Profile</a> -->

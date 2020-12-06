@@ -80,16 +80,6 @@
             <td>:</td>
             <td><?= $deposito['bunga']; ?> %</td>
         </tr>
-        <tr>
-            <td>Ahli Waris</td>
-            <td>:</td>
-            <td><?= $deposito['ahliwaris']; ?> </td>
-        </tr>
-        <tr>
-            <td>Status</td>
-            <td>:</td>
-            <td><?= $deposito['status']; ?></td>
-        </tr>
     </table>
     <table style="margin-top: 30px;">
         <tr>

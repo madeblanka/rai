@@ -27,7 +27,6 @@
                         <div style="margin-left: 40px;">
                             <p>Jangka Waktu : <?= $d['waktu']; ?></p>
                             <p>Bunga : <?= $d['bunga']; ?> % per Tahun</p>
-                            <p>Ahli Waris : <?= $d['ahliwaris']; ?></p>
                             <p>Status Pengajuan : <?= $d['status']; ?></p>
                         </div>
                         <br>
@@ -59,7 +58,6 @@
                         <div style="margin-left: 40px;">
                             <p>Jangka Waktu : <?= $t['waktu']; ?> Bulan</p>
                             <p>Bunga : <?= $t['bunga']; ?> % per Tahun</p>
-                            <p>Ahli Waris : <?= $t['ahliwaris']; ?></p>
                             <p>Status Pengajuan : <?= $t['status']; ?></p>
                         </div>
                         <br>

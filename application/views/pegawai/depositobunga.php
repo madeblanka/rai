@@ -73,7 +73,7 @@
                 <form action="<?php echo site_url('pegawai/depositobungatambah/') ?>" method="post">
                     <div class="form-group">
                         <label for="bunga">Persentase Bunga (%)</label>
-                        <input type="number" class="form-control" name="bunga">
+                        <input type="number" class="form-control" name="bunga" step=".01">
                         <?= form_error('bunga', '<small class="text-danger pl-3">', '</small>'); ?>
                     </div>
                     <div class="form-group">

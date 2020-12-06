@@ -35,16 +35,7 @@
                         <label for="alamat">Alamat</label>
                         <input type="text" class="form-control" name="alamat" placeholder="alamat" value="<?= $nasabah['alamat']; ?>" readonly>
                     </div>
-                    <div class="form-group">
-                        <label for="ahliwaris">Ahli Waris</label>
-                        <input type="text" class="form-control" name="ahliwaris" placeholder="Nama Ahli Waris" value="<?= set_value('ahliwaris') ?>">
-                        <?= form_error('ahliwaris', '<small class="text-danger pl-3">', '</small>'); ?>
-                    </div>
-                    <div class="form-group">
-                        <label for="statusahliwaris">Status Ahli Waris</label>
-                        <input type="text" class="form-control" name="statusahliwaris" placeholder="Status Ahli Waris" value="<?= set_value('statusahliwaris') ?>">
-                        <?= form_error('statusahliwaris', '<small class="text-danger pl-3">', '</small>'); ?>
-                    </div>
+
                     <div class="form-group">
                         <label for="jumlah">Jumlah Deposito</label>
                         <input type="text" class="form-control" name="jumlah" placeholder="Rp. " value="<?= set_value('jumlah') ?>">

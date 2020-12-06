@@ -17,17 +17,14 @@ class Nasabah_model extends CI_Model
     public $tgl_lahir;
     public $jabatan;
     public $gaji;
-    public $umur;
     public $alamat;
     public $statusrumah;
     public $namakerabat;
-    public $statuskerabat;
     public $alamatkerabat;
     public $pekerjaankerabat;
-    public $perusahaankerabat;
-    public $kelurahan;
-    public $kecamatan;
-    public $provinsi;
+    public $ahliwaris;
+    public $statusahliwaris;
+
 
     public function getAll()
     {
@@ -48,7 +45,6 @@ class Nasabah_model extends CI_Model
         // $this->password = rand(000000, 999999);
         $this->password = $post["password"];
         $this->nik = $post["nik"];
-        $this->email = $post["email"];
         $this->username = $post["username"];
         $this->nama = $post["nama"];
         $this->jeniskelamin = $post["jeniskelamin"];
@@ -60,56 +56,53 @@ class Nasabah_model extends CI_Model
         $this->tgl_lahir = $post["tgl_lahir"];
         $this->jabatan = $post["jabatan"];
         $this->gaji = $post["gaji"];
-        $this->umur = $post["umur"];
         $this->alamat = $post["alamat"];
         $this->statusrumah = $post["statusrumah"];
         $this->namakerabat = $post["namakerabat"];
-        $this->statuskerabat = $post["statuskerabat"];
         $this->alamatkerabat = $post["alamatkerabat"];
         $this->pekerjaankerabat = $post["pekerjaankerabat"];
-        $this->perusahaankerabat = $post["perusahaankerabat"];
-        $this->kelurahan = $post["kelurahan"];
-        $this->kecamatan = $post["kecamatan"];
-        $this->provinsi = $post["provinsi"];
+        $this->status = "Tidak Aktif";
+        $this->ahliwaris = $post["ahliwaris"];
+        $this->statusahliwaris = $post["statusahliwaris"];
         $this->tgl_input = $timestamp;
         return $this->db->insert($this->_table, $this);
     }
 
-    public function update()
-    {
-        $timestamp = date("Y-m-d H:i:s");
+    // public function update()
+    // {
+    //     $timestamp = date("Y-m-d H:i:s");
 
-        $post = $this->input->post();
-        $this->idnasabah = $post["idnasabah"];
-        $this->password = $post["password"];
-        $this->nik = $post["nik"];
-        $this->email = $post["email"];
-        $this->username = $post["username"];
-        $this->nama = $post["nama"];
-        $this->price = $post["price"];
-        $this->jeniskelamin = $post["jeniskelamin"];
-        $this->pernikahan = $post["pernikahan"];
-        $this->notelp = $post["notelp"];
-        $this->tempatkerja = $post["tempatkerja"];
-        $this->lamakerja_tahun = $post["lamakerja_tahun"];
-        $this->lamakerja_bulan = $post["lamakerja_bulan"];
-        $this->tgl_lahir = $post["tgl_lahir"];
-        $this->jabatan = $post["jabatan"];
-        $this->gaji = $post["gaji"];
-        $this->umur = $post["umur"];
-        $this->alamat = $post["alamat"];
-        $this->statusrumah = $post["statusrumah"];
-        $this->namakerabat = $post["namakerabat"];
-        $this->statuskerabat = $post["statuskerabat"];
-        $this->alamatkerabat = $post["alamatkerabat"];
-        $this->pekerjaankerabat = $post["pekerjaankerabat"];
-        $this->perusahaankerabat = $post["perusahaankerabat"];
-        $this->kelurahan = $post["kelurahan"];
-        $this->kecamatan = $post["kecamatan"];
-        $this->provinsi = $post["provinsi"];
-        $this->tgl_update = $timestamp;
-        return $this->db->update($this->_table, $this, array('idnasabah' => $post['idnasabah']));
-    }
+    //     $post = $this->input->post();
+    //     $this->idnasabah = $post["idnasabah"];
+    //     $this->password = $post["password"];
+    //     $this->nik = $post["nik"];
+    //     $this->email = $post["email"];
+    //     $this->username = $post["username"];
+    //     $this->nama = $post["nama"];
+    //     $this->price = $post["price"];
+    //     $this->jeniskelamin = $post["jeniskelamin"];
+    //     $this->pernikahan = $post["pernikahan"];
+    //     $this->notelp = $post["notelp"];
+    //     $this->tempatkerja = $post["tempatkerja"];
+    //     $this->lamakerja_tahun = $post["lamakerja_tahun"];
+    //     $this->lamakerja_bulan = $post["lamakerja_bulan"];
+    //     $this->tgl_lahir = $post["tgl_lahir"];
+    //     $this->jabatan = $post["jabatan"];
+    //     $this->gaji = $post["gaji"];
+    //     $this->umur = $post["umur"];
+    //     $this->alamat = $post["alamat"];
+    //     $this->statusrumah = $post["statusrumah"];
+    //     $this->namakerabat = $post["namakerabat"];
+    //     $this->statuskerabat = $post["statuskerabat"];
+    //     $this->alamatkerabat = $post["alamatkerabat"];
+    //     $this->pekerjaankerabat = $post["pekerjaankerabat"];
+    //     $this->perusahaankerabat = $post["perusahaankerabat"];
+    //     $this->kelurahan = $post["kelurahan"];
+    //     $this->kecamatan = $post["kecamatan"];
+    //     $this->provinsi = $post["provinsi"];
+    //     $this->tgl_update = $timestamp;
+    //     return $this->db->update($this->_table, $this, array('idnasabah' => $post['idnasabah']));
+    // }
 
     public function delete($idnasabah)
     {

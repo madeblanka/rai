@@ -54,11 +54,7 @@
                                         <td style="padding: 5px;">:</td>
                                         <td style="padding: 5px;"><?= $tabungan['bunga']; ?> %</td>
                                     </tr>
-                                    <tr>
-                                        <th style="padding: 5px;">Ahli Waris</th>
-                                        <td style="padding: 5px;">:</td>
-                                        <td style="padding: 5px;"><?= $tabungan['ahliwaris']; ?> </td>
-                                    </tr>
+
                                     <tr>
                                         <th style="padding: 5px;">Status</th>
                                         <td style="padding: 5px;">:</td>

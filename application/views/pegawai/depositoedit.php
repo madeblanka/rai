@@ -13,35 +13,25 @@
                 <div class="card-body">
                     <div class="col-md-6">
                         <form action="<?php echo site_url('pegawai/depositoupdate/') ?>" method="post">
-                            <input type="hidden" class="form-control" name="idpengajuandeposito" value="<?= $deposito['idpengajuandeposito'] ?>" required>
+                            <input type="hidden" class="form-control" name="idpengajuandeposito" value="<?= $deposito['idpengajuandeposito'] ?>">
                             <div class="form-group">
                                 <label for="jumlah">Jumlah Deposito</label>
-                                <input type="text" class="form-control" name="jumlah" value="<?= $deposito['jumlah'] ?>" required>
+                                <input type="text" class="form-control" name="jumlah" value="<?= $deposito['jumlah'] ?>">
                                 <?= form_error('jumlah', '<small class="text-danger pl-3">', '</small>'); ?>
                             </div>
                             <div class="form-group">
                                 <label for="waktu">Waktu</label>
-                                <input type="text" class="form-control" name="waktu" value="<?= $deposito['waktu'] ?>" required>
+                                <input type="text" class="form-control" name="waktu" value="<?= $deposito['waktu'] ?>">
                                 <?= form_error('waktu', '<small class="text-danger pl-3">', '</small>'); ?>
                             </div>
                             <div class="form-group">
                                 <label for="bunga">Bunga</label>
-                                <input type="text" class="form-control" name="bunga" value="<?= $deposito['bunga'] ?>" required>
+                                <input type="text" class="form-control" name="bunga" value="<?= $deposito['bunga'] ?>">
                                 <?= form_error('bunga', '<small class="text-danger pl-3">', '</small>'); ?>
                             </div>
                             <div class="form-group">
-                                <label for="ahliwaris">Ahli Waris</label>
-                                <input type="text" class="form-control" name="ahliwaris" value="<?= $deposito['ahliwaris'] ?>" required>
-                                <?= form_error('ahliwaris', '<small class="text-danger pl-3">', '</small>'); ?>
-                            </div>
-                            <div class="form-group">
-                                <label for="statusahliwaris">Status Ahli Waris</label>
-                                <input type="text" class="form-control" name="statusahliwaris" value="<?= $deposito['statusahliwaris'] ?>" required>
-                                <?= form_error('statusahliwaris', '<small class="text-danger pl-3">', '</small>'); ?>
-                            </div>
-                            <div class="form-group">
                                 <label for="tanggal">Tanggal</label>
-                                <input type="date" class="form-control" name="tanggal" value="<?= $deposito['tanggal'] ?>" required>
+                                <input type="date" class="form-control" name="tanggal" value="<?= $deposito['tanggal'] ?>">
                                 <?= form_error('tanggal', '<small class="text-danger pl-3">', '</small>'); ?>
                             </div>
                             <div class="form-group">

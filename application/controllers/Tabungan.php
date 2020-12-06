@@ -29,8 +29,6 @@ class Tabungan extends CI_Controller
 		}
 		$data['tabungan'] = $this->db->get('tabeltabungan')->result_array();
 
-		$this->form_validation->set_rules('ahliwaris', 'ahli waris', 'required|trim');
-		$this->form_validation->set_rules('statusahliwaris', 'status ahli waris', 'required|trim');
 		$this->form_validation->set_rules('jumlah', 'jumlah', 'required|trim');
 		$this->form_validation->set_rules('bunga', 'jangka waktu', 'required|trim');
 		$this->form_validation->set_rules('tanggal', 'tanggal', 'required|trim');
@@ -44,8 +42,6 @@ class Tabungan extends CI_Controller
 
 			$data = [
 				'idnasabah' => $post["idnasabah"],
-				'ahliwaris' => $post['ahliwaris'],
-				'statusahliwaris' => $post['statusahliwaris'],
 				'jumlah' => $post["jumlah"],
 				'bunga' => $data_tabungan["bunga"],
 				'waktu' => $waktu = intval(substr($data_tabungan["bulan"], 0, 2)),
@@ -53,7 +49,7 @@ class Tabungan extends CI_Controller
 				'status' => "Menunggu",
 			];
 			$this->db->insert('tabungan', $data);
-			$this->session->set_flashdata('message', 'Pengajuan Tabungan Berhasil');
+			$this->session->set_flashdata('message', 'Pengajuan Tabungan Program Berhasil');
 			redirect("nasabah/detailpengajuan");
 		}
 		// $this->load->view('tabungan/daftar');

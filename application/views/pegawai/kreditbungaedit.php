@@ -33,7 +33,7 @@
                             </div> -->
                             <div class="form-group">
                                 <label for="bunga">Bunga (%)</label>
-                                <input type="text" class="form-control" name="bunga" value="<?= $tabelkredit['bunga'] ?>" required>
+                                <input type="text" class="form-control" name="bunga" value="<?= $tabelkredit['bunga'] ?>">
                                 <?= form_error('bunga', '<small class="text-danger pl-3">', '</small>'); ?>
                             </div>
                             <button type="submit" class="btn btn-primary">Submit</button>

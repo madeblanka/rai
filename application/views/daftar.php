@@ -30,11 +30,6 @@
                     <?= form_error('nama', '<small class="text-danger pl-3">', '</small>'); ?>
                 </div>
                 <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="text" class="form-control" name="email" placeholder="Email">
-                    <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
-                </div>
-                <div class="form-group">
                     <label for="username">Username</label>
                     <input type="text" class="form-control" name="username" placeholder="Username">
                     <?= form_error('username', '<small class="text-danger pl-3">', '</small>'); ?>
@@ -111,11 +106,7 @@
                     <input type="number" class="form-control" name="gaji" aria-describedby="emailHelp" placeholder="xxx.xxx.xxx">
                     <?= form_error('gaji', '<small class="text-danger pl-3">', '</small>'); ?>
                 </div>
-                <div class="form-group">
-                    <label for="umur">Umur</label>
-                    <input type="number" class="form-control" name="umur" placeholder="xx">
-                    <?= form_error('umur', '<small class="text-danger pl-3">', '</small>'); ?>
-                </div>
+
                 <div class="form-group">
                     <label for="kelurahan">Alamat</label>
                     <input type="text" class="form-control" name="alamat" aria-describedby="emailHelp" placeholder="Alamat">
@@ -154,31 +145,13 @@
                         </label>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label for="kelurahan">Kelurahan</label>
-                    <input type="text" class="form-control" name="kelurahan" aria-describedby="emailHelp" placeholder="Kelurahan">
-                    <?= form_error('kelurahan', '<small class="text-danger pl-3">', '</small>'); ?>
-                </div>
-                <div class="form-group">
-                    <label for="kecamatan">Kecamatan</label>
-                    <input type="text" class="form-control" name="kecamatan" placeholder="Kecamatan">
-                    <?= form_error('kecamatan', '<small class="text-danger pl-3">', '</small>'); ?>
-                </div>
-                <div class="form-group">
-                    <label for="provinsi">Provinsi</label>
-                    <input type="text" class="form-control" name="provinsi" aria-describedby="emailHelp" placeholder="Bali ">
-                    <?= form_error('provinsi', '<small class="text-danger pl-3">', '</small>'); ?>
-                </div>
+
                 <div class="form-group">
                     <label for="namakerabat">Nama Kerabat</label>
                     <input type="text" class="form-control" name="namakerabat" placeholder="Nama Kerabat">
                     <?= form_error('namakerabat', '<small class="text-danger pl-3">', '</small>'); ?>
                 </div>
-                <div class="form-group">
-                    <label for="statuskerabat">Status Kerabat</label>
-                    <input type="text" class="form-control" name="statuskerabat" aria-describedby="emailHelp" placeholder="Ex: Sepupu / Tante / Paman">
-                    <?= form_error('statuskerabat', '<small class="text-danger pl-3">', '</small>'); ?>
-                </div>
+
                 <div class="form-group">
                     <label for="alamatkerabat">Alamat Kerabat</label>
                     <input type="text" class="form-control" name="alamatkerabat" placeholder="Alamat Kerabat">
@@ -190,10 +163,16 @@
                     <?= form_error('pekerjaankerabat', '<small class="text-danger pl-3">', '</small>'); ?>
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputPassword1">Nama Perusahaan Tempat Kerabat Bekerja</label>
-                    <input type="text" class="form-control" name="perusahaankerabat" placeholder="Nama Perusahaan">
-                    <?= form_error('perusahaankerabat', '<small class="text-danger pl-3">', '</small>'); ?>
+                    <label for="ahliwaris">Ahli Waris</label>
+                    <input type="text" class="form-control" name="ahliwaris" aria-describedby="emailHelp" placeholder="Pekerjaan Kerabat">
+                    <?= form_error('ahliwaris', '<small class="text-danger pl-3">', '</small>'); ?>
                 </div>
+                <div class="form-group">
+                    <label for="statusahliwaris">Status Ahli Waris</label>
+                    <input type="text" class="form-control" name="statusahliwaris" aria-describedby="emailHelp" placeholder="Pekerjaan Kerabat">
+                    <?= form_error('statusahliwaris', '<small class="text-danger pl-3">', '</small>'); ?>
+                </div>
+
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>

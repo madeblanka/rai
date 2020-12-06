@@ -8,11 +8,11 @@
 
             <div class="card mb-4">
                 <div class="card-header">
-                    Edit Data Nasabah
+                    Detail Nasabah
                 </div>
                 <div class="card-body">
                     <div class="col-md-6">
-                        <form action="#" method="post">
+                        <form action="<?php echo site_url('pegawai/nasabahupdate') ?>" method="post">
                             <input type="hidden" value="<?= $nasabah['idnasabah']; ?>" name="idnasabah">
                             <div class="form-group">
                                 <label for="nik">NIK</label>
@@ -24,27 +24,18 @@
                                 <input type="text" class="form-control" name="nama" placeholder="Nama Lengkap" value="<?= $nasabah['nama']; ?>" readonly>
                                 <?= form_error('nama', '<small class="text-danger pl-3">', '</small>'); ?>
                             </div>
-                            <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="text" class="form-control" name="email" placeholder="Email" readonly value="<?= $nasabah['email']; ?>">
-                                <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
-                            </div>
+
                             <div class="form-group">
                                 <label for="username">Username</label>
-                                <input type="text" class="form-control" name="username" placeholder="Username" readonly value="<?= $nasabah['username']; ?>">
+                                <input type="text" class="form-control" name="username" placeholder="Username" required value="<?= $nasabah['username']; ?>" readonly>
                                 <?= form_error('username', '<small class="text-danger pl-3">', '</small>'); ?>
                             </div>
                             <div class="form-group">
                                 <label for="password">Password</label>
-                                <input type="text" class="form-control" name="password" placeholder="password" readonly value="<?= $nasabah['password']; ?>">
+                                <input type="text" class="form-control" name="password" placeholder="password" required value="<?= $nasabah['password']; ?>" readonly>
                                 <?= form_error('password', '<small class="text-danger pl-3">', '</small>'); ?>
                             </div>
                             <div class="form-group">
-                                <label for="jeniskelamin">jeniskelamin</label>
-                                <input type="text" class="form-control" name="jeniskelamin" placeholder="jeniskelamin" readonly value="<?= $nasabah['jeniskelamin']; ?>">
-                                <?= form_error('jeniskelamin', '<small class="text-danger pl-3">', '</small>'); ?>
-                            </div>
-                            <!-- <div class="form-group">
                                 <label for="nama">Jenis Kelamin</label>
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="jeniskelamin" id="pria" value="Pria" <?php echo ($nasabah['jeniskelamin'] == 'Pria') ? 'checked' : '' ?>>
@@ -58,9 +49,9 @@
                                         Perempuan
                                     </label>
                                 </div>
-                            </div> -->
+                            </div>
 
-                            <!-- <div class="form-group">
+                            <div class="form-group">
                                 <label for="exampleInputPassword1">Status</label>
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="pernikahan" id="belummenikah" value="Belum Menikah" <?php echo ($nasabah['pernikahan'] == 'Belum Menikah') ? 'checked' : '' ?>>
@@ -80,11 +71,6 @@
                                         Cerai Hidup
                                     </label>
                                 </div>
-                            </div> -->
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Status</label>
-                                <input type="text" class="form-control" name="Status" aria-describedby="emailHelp" placeholder="08xxxxx" value="<?= $nasabah['pernikahan']; ?>" readonly>
-                                <?= form_error('notelp', '<small class="text-danger pl-3">', '</small>'); ?>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">No Handphone</label>
@@ -98,12 +84,12 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Lama Bekerja (tahun)</label>
-                                <input type="text" class="form-control" name="lamakerja_tahun" aria-describedby="emailHelp" placeholder="Lama Bekerja (Tahun)" readonly value="<?= $nasabah['lamakerja_tahun']; ?>">
+                                <input type="text" class="form-control" name="lamakerja_tahun" aria-describedby="emailHelp" placeholder="Lama Bekerja (Tahun)" required value="<?= $nasabah['lamakerja_tahun']; ?>" readonly>
                                 <?= form_error('lamakerja_tahun', '<small class="text-danger pl-3">', '</small>'); ?>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Lama Bekerja (bulan)</label>
-                                <input type="text" class="form-control" name="lamakerja_bulan" aria-describedby="emailHelp" placeholder="Lama Bekerja (bulan)" readonly value="<?= $nasabah['lamakerja_bulan']; ?>">
+                                <input type="text" class="form-control" name="lamakerja_bulan" aria-describedby="emailHelp" placeholder="Lama Bekerja (bulan)" required value="<?= $nasabah['lamakerja_bulan']; ?>" readonly>
                                 <?= form_error('lamakerja_bulan', '<small class="text-danger pl-3">', '</small>'); ?>
                             </div>
                             <div class="form-group">
@@ -116,11 +102,7 @@
                                 <input type="number" class="form-control" name="gaji" aria-describedby="emailHelp" placeholder="xxx.xxx.xxx" value="<?= $nasabah['gaji']; ?>" readonly>
                                 <?= form_error('gaji', '<small class="text-danger pl-3">', '</small>'); ?>
                             </div>
-                            <div class="form-group">
-                                <label for="umur">Umur</label>
-                                <input type="number" class="form-control" name="umur" placeholder="xx" required value="<?= $nasabah['umur']; ?>" readonly>
-                                <?= form_error('umur', '<small class="text-danger pl-3">', '</small>'); ?>
-                            </div>
+
                             <div class="form-group">
                                 <label for="kelurahan">Alamat</label>
                                 <input type="text" class="form-control" name="alamat" aria-describedby="emailHelp" placeholder="Alamat" required value="<?= $nasabah['alamat']; ?>" readonly>
@@ -131,14 +113,14 @@
                                     <div class="row">
                                         <div class="col-md-5">
                                             <label for="kelurahan">Tanggal Lahir</label>
-                                            <input type="date" class="form-control" name="tgl_lahir" aria-describedby="emailHelp" placeholder="Tanggal Lahir" readonly value="<?= $nasabah['tgl_lahir']; ?>">
+                                            <input type="date" class="form-control" name="tgl_lahir" aria-describedby="emailHelp" placeholder="Tanggal Lahir" required value="<?= $nasabah['tgl_lahir']; ?>" readonly>
                                             <?= form_error('tgl_lahir', '<small class="text-danger pl-3">', '</small>'); ?>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <!-- <div class="form-group">
+                            <div class="form-group">
                                 <label for="nama">Status Rumah</label>
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="statusrumah" id="MilikPribadi" value="Milik Pribadi" <?php echo ($nasabah['statusrumah'] == 'Milik Pribadi') ? 'checked' : '' ?>>
@@ -158,37 +140,14 @@
                                         Kos
                                     </label>
                                 </div>
-                            </div> -->
-                            <div class="form-group">
-                                <label for="status_rumah">Status Rumah</label>
-                                <input type="text" class="form-control" name="status_rumah" aria-describedby="emailHelp" placeholder="status_rumah" required value="<?= $nasabah['statusrumah'] ?>" readonly>
-                                <?= form_error('status_rumah', '<small class="text-danger pl-3">', '</small>'); ?>
                             </div>
-                            <div class="form-group">
-                                <label for="kelurahan">Kelurahan</label>
-                                <input type="text" class="form-control" name="kelurahan" aria-describedby="emailHelp" placeholder="Kelurahan" required value="<?= $nasabah['kelurahan']; ?>" readonly>
-                                <?= form_error('kelurahan', '<small class="text-danger pl-3">', '</small>'); ?>
-                            </div>
-                            <div class="form-group">
-                                <label for="kecamatan">Kecamatan</label>
-                                <input type="text" class="form-control" name="kecamatan" placeholder="Kecamatan" value="<?= $nasabah['kecamatan']; ?>" readonly>
-                                <?= form_error('kecamatan', '<small class="text-danger pl-3">', '</small>'); ?>
-                            </div>
-                            <div class="form-group">
-                                <label for="provinsi">Provinsi</label>
-                                <input type="text" class="form-control" name="provinsi" aria-describedby="emailHelp" placeholder="Bali " value="<?= $nasabah['provinsi']; ?>" readonly>
-                                <?= form_error('provinsi', '<small class="text-danger pl-3">', '</small>'); ?>
-                            </div>
+
                             <div class="form-group">
                                 <label for="namakerabat">Nama Kerabat</label>
                                 <input type="text" class="form-control" name="namakerabat" placeholder="Nama Kerabat" value="<?= $nasabah['namakerabat']; ?>" readonly>
                                 <?= form_error('namakerabat', '<small class="text-danger pl-3">', '</small>'); ?>
                             </div>
-                            <div class="form-group">
-                                <label for="statuskerabat">Status Kerabat</label>
-                                <input type="text" class="form-control" name="statuskerabat" aria-describedby="emailHelp" placeholder="Ex: Sepupu / Tante / Paman" value="<?= $nasabah['statuskerabat']; ?>" readonly>
-                                <?= form_error('statuskerabat', '<small class="text-danger pl-3">', '</small>'); ?>
-                            </div>
+
                             <div class="form-group">
                                 <label for="alamatkerabat">Alamat Kerabat</label>
                                 <input type="text" class="form-control" name="alamatkerabat" placeholder="Alamat Kerabat" value="<?= $nasabah['alamatkerabat']; ?>" readonly>
@@ -200,10 +159,25 @@
                                 <?= form_error('pekerjaankerabat', '<small class="text-danger pl-3">', '</small>'); ?>
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputPassword1">Nama Perusahaan Tempat Kerabat Bekerja</label>
-                                <input type="text" class="form-control" name="perusahaankerabat" placeholder="Nama Perusahaan" value="<?= $nasabah['perusahaankerabat']; ?>" readonly>
-                                <?= form_error('perusahaankerabat', '<small class="text-danger pl-3">', '</small>'); ?>
+                                <label for="ahliwaris">Ahli Waris</label>
+                                <input type="text" class="form-control" name="ahliwaris" aria-describedby="emailHelp" placeholder=">Ahli Waris" value="<?= $nasabah['ahliwaris']; ?>" readonly>
+                                <?= form_error('ahliwaris', '<small class="text-danger pl-3">', '</small>'); ?>
                             </div>
+                            <div class="form-group">
+                                <label for="statusahliwaris">Status Ahli Waris</label>
+                                <input type="text" class="form-control" name="statusahliwaris" aria-describedby="emailHelp" placeholder="Status Ahli Waris" value="<?= $nasabah['statusahliwaris']; ?>" readonly>
+                                <?= form_error('statusahliwaris', '<small class="text-danger pl-3">', '</small>'); ?>
+                            </div>
+                            <div class="form-group">
+                                <label for="status">Status Nasabah</label>
+                                <input type="text" class="form-control" name="status" aria-describedby="emailHelp" placeholder="Status Ahli Waris" value="<?= $nasabah['status']; ?>" readonly>
+                                <?= form_error('status', '<small class="text-danger pl-3">', '</small>'); ?>
+                            </div>
+
+
+
+
+
                         </form>
                         <a href="<?php echo site_url('pegawai/nasabahedit/' . $nasabah['idnasabah']) ?>" class="btn btn-small"><i class="fas fa-edit"></i> Edit</a>
                         <a href="<?php echo site_url('pegawai/nasabahdelete/' . $nasabah['idnasabah']) ?>" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus Data Ini ?');" href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>

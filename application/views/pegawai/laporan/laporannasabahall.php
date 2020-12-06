@@ -51,7 +51,7 @@
                 <th>No</th>
                 <th>ID Nasabah</th>
                 <th>Nama</th>
-                <th>Total Pengajuan Tabungan (Rp)</th>
+                <th>Total Pengajuan Tabungan Program (Rp)</th>
                 <th>Total Pengajuan Kredit (Rp)</th>
                 <th>Total Pengajuan Deposito (Rp)</th>
             </tr>

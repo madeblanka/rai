@@ -128,7 +128,7 @@ class Pegawai extends CI_Controller
 
 	public function depositodetail($id)
 	{
-		$query = "SELECT `deposito`.* , `nasabah`.*
+		$query = "SELECT `deposito`.* , `nasabah`.`nama`, `nasabah`.`alamat`
 				FROM `deposito` JOIN `nasabah`
 				ON `deposito`.`idnasabah` = `nasabah`.`idnasabah`					
 				WHERE `deposito`.`idnasabah` = `nasabah`.`idnasabah` AND `deposito`.`idpengajuandeposito` = $id
@@ -155,8 +155,6 @@ class Pegawai extends CI_Controller
 		$this->form_validation->set_rules('jumlah', 'jumlah', 'required|trim');
 		$this->form_validation->set_rules('waktu', 'waktu', 'required|trim');
 		$this->form_validation->set_rules('bunga', 'bunga', 'required|trim');
-		$this->form_validation->set_rules('ahliwaris', 'ahliwaris', 'required|trim');
-		$this->form_validation->set_rules('statusahliwaris', 'statusahliwaris', 'required|trim');
 		$this->form_validation->set_rules('status', 'status', 'required|trim');
 		$this->form_validation->set_rules('tanggal', 'tanggal', 'required|trim');
 
@@ -172,8 +170,6 @@ class Pegawai extends CI_Controller
 				'jumlah' => $post['jumlah'],
 				'waktu' => $post['waktu'],
 				'bunga' => $post['bunga'],
-				'ahliwaris' => $post['ahliwaris'],
-				'statusahliwaris' => $post['statusahliwaris'],
 				'tanggal' => $post['tanggal'],
 				'status' => $post['status'],
 			];
@@ -241,7 +237,7 @@ class Pegawai extends CI_Controller
 	public function depositopermohonan($id)
 	{
 
-		$query = "SELECT `deposito`.* , `nasabah`.*
+		$query = "SELECT `deposito`.* , `nasabah`.`nama`, `nasabah`.`alamat`
 				FROM `deposito` JOIN `nasabah`
 				ON `deposito`.`idnasabah` = `nasabah`.`idnasabah`					
 				WHERE `deposito`.`idnasabah` = `nasabah`.`idnasabah` AND `deposito`.`idpengajuandeposito` = $id
@@ -312,6 +308,7 @@ class Pegawai extends CI_Controller
 			];
 
 			$this->db->insert('tabeldeposito', $data);
+			$this->session->set_flashdata('message', 'Data Berhasil Ditambah');
 			redirect('pegawai/depositobunga');
 		}
 	}
@@ -341,7 +338,7 @@ class Pegawai extends CI_Controller
 
 	public function kreditdetail($id)
 	{
-		$query = "SELECT `kredit`.* , `nasabah`.*
+		$query = "SELECT `kredit`.* , `nasabah`.`nama`, `nasabah`.`alamat`
 				FROM `kredit` JOIN `nasabah`
 				ON `kredit`.`idnasabah` = `nasabah`.`idnasabah`					
 				WHERE `kredit`.`idnasabah` = `nasabah`.`idnasabah` AND `kredit`.`idpengajuankredit` = $id
@@ -422,8 +419,8 @@ class Pegawai extends CI_Controller
 	public function kreditbungaupdate()
 	{
 		$this->form_validation->set_rules('idkredit', 'id kredit', 'required|trim');
-		$this->form_validation->set_rules('jumlah1', 'jumlah minimal', 'required|trim');
-		$this->form_validation->set_rules('jumlah2', 'jumlah maksimal', 'required|trim');
+		$this->form_validation->set_rules('jumlah1', 'plapon minimal', 'required|trim');
+		$this->form_validation->set_rules('jumlah2', 'plapon maksimal', 'required|trim');
 		$this->form_validation->set_rules('bunga', 'jangka waktu', 'required|trim');
 		// $this->form_validation->set_rules('bulan', 'bulan', 'required|trim');
 		if ($this->form_validation->run() == false) {
@@ -484,6 +481,7 @@ class Pegawai extends CI_Controller
 			];
 
 			$this->db->insert('tabelkredit', $data);
+			$this->session->set_flashdata('message', 'Data Berhasil Ditambah');
 			redirect('pegawai/kreditbunga');
 		}
 	}
@@ -518,7 +516,7 @@ class Pegawai extends CI_Controller
 	public function kreditpermohonan($id)
 	{
 
-		$query = "SELECT `kredit`.* , `nasabah`.*
+		$query = "SELECT `kredit`.* , `nasabah`.`nama`, `nasabah`.`alamat`
 				FROM `kredit` JOIN `nasabah`
 				ON `kredit`.`idnasabah` = `nasabah`.`idnasabah`					
 				WHERE `kredit`.`idnasabah` = `nasabah`.`idnasabah` AND `kredit`.`idpengajuankredit` = $id
@@ -567,8 +565,6 @@ class Pegawai extends CI_Controller
 		$this->form_validation->set_rules('jumlah', 'jumlah', 'required|trim');
 		$this->form_validation->set_rules('waktu', 'waktu', 'required|trim');
 		$this->form_validation->set_rules('bunga', 'bunga', 'required|trim');
-		$this->form_validation->set_rules('ahliwaris', 'ahliwaris', 'required|trim');
-		$this->form_validation->set_rules('statusahliwaris', 'statusahliwaris', 'required|trim');
 		$this->form_validation->set_rules('status', 'status', 'required|trim');
 		$this->form_validation->set_rules('tanggal', 'tanggal', 'required|trim');
 
@@ -584,8 +580,6 @@ class Pegawai extends CI_Controller
 				'jumlah' => $post['jumlah'],
 				'waktu' => $post['waktu'],
 				'bunga' => $post['bunga'],
-				'ahliwaris' => $post['ahliwaris'],
-				'statusahliwaris' => $post['statusahliwaris'],
 				'tanggal' => $post['tanggal'],
 				'status' => $post['status'],
 			];
@@ -670,6 +664,7 @@ class Pegawai extends CI_Controller
 			];
 
 			$this->db->insert('tabeltabungan', $data);
+			$this->session->set_flashdata('message', 'Data Berhasil Ditambah');
 			redirect('pegawai/tabunganbunga');
 		}
 	}
@@ -731,31 +726,29 @@ class Pegawai extends CI_Controller
 
 		$this->form_validation->set_rules('nik', 'nik', 'required|trim');
 		$this->form_validation->set_rules('nama', 'nama', 'required|trim');
+
 		$this->form_validation->set_rules('username', 'username', 'required|trim');
 		$this->form_validation->set_rules('password', 'password', 'required|trim');
 		$this->form_validation->set_rules('jeniskelamin', 'jeniskelamin', 'required|trim');
 		$this->form_validation->set_rules('pernikahan', 'pernikahan', 'required|trim');
-		$this->form_validation->set_rules('notelp', 'notelp', 'required|trim');
+		$this->form_validation->set_rules('notelp', 'no telp', 'required|trim');
 
-		$this->form_validation->set_rules('tempatkerja', 'tempatkerja', 'required|trim');
-		$this->form_validation->set_rules('lamakerja_tahun', 'lamakerja_tahun', 'required|trim');
-		$this->form_validation->set_rules('lamakerja_bulan', 'lamakerja_bulan', 'required|trim');
+		$this->form_validation->set_rules('tempatkerja', 'tempat kerja', 'required|trim');
+		$this->form_validation->set_rules('lamakerja_bulan', 'lama kerja (bulan)', 'required|trim');
+		$this->form_validation->set_rules('lamakerja_tahun', 'lama kerja (tahun)', 'required|trim');
 		$this->form_validation->set_rules('jabatan', 'jabatan', 'required|trim');
 		$this->form_validation->set_rules('gaji', 'gaji', 'required|trim');
-		$this->form_validation->set_rules('umur', 'umur', 'required|trim');
 
-		$this->form_validation->set_rules('tgl_lahir', 'tgl_lahir', 'required|trim');
+
+		$this->form_validation->set_rules('tgl_lahir', 'tanggal lahir', 'required|trim');
 		$this->form_validation->set_rules('alamat', 'alamat', 'required|trim');
-		$this->form_validation->set_rules('statusrumah', 'statusrumah', 'required|trim');
-		$this->form_validation->set_rules('kelurahan', 'kelurahan', 'required|trim');
-		$this->form_validation->set_rules('kecamatan', 'kecamatan', 'required|trim');
-		$this->form_validation->set_rules('provinsi', 'provinsi', 'required|trim');
+		$this->form_validation->set_rules('statusrumah', 'status rumah', 'required|trim');
 
-		$this->form_validation->set_rules('namakerabat', 'namakerabat', 'required|trim');
-		$this->form_validation->set_rules('statuskerabat', 'statuskerabat', 'required|trim');
-		$this->form_validation->set_rules('alamatkerabat', 'alamatkerabat', 'required|trim');
-		$this->form_validation->set_rules('pekerjaankerabat', 'pekerjaankerabat', 'required|trim');
-		$this->form_validation->set_rules('perusahaankerabat', 'perusahaankerabat', 'required|trim');
+		$this->form_validation->set_rules('namakerabat', 'nama kerabat', 'required|trim');
+		$this->form_validation->set_rules('alamatkerabat', 'alamat kerabat', 'required|trim');
+		$this->form_validation->set_rules('pekerjaankerabat', 'pekerjaan kerabat', 'required|trim');
+		$this->form_validation->set_rules('ahliwaris', 'ahli waris', 'required|trim');
+		$this->form_validation->set_rules('statusahliwaris', 'status ahli waris', 'required|trim');
 
 		if ($this->form_validation->run() == false) {
 			$post = $this->input->post();
@@ -766,33 +759,29 @@ class Pegawai extends CI_Controller
 			$data = [
 				'idpegawai' => $pegawai['idpegawai'],
 				'nik' => $post['nik'],
+				'username' => $post['username'],
+				'password' => $post['password'],
 				'nama' => $post['nama'],
 				'jeniskelamin' => $post['jeniskelamin'],
 				'pernikahan' => $post['pernikahan'],
 				'notelp' => $post['notelp'],
-				'username' => $post['username'],
-				'password' => $post['password'],
 
 				'tempatkerja' => $post['tempatkerja'],
 				'lamakerja_tahun' => $post['lamakerja_tahun'],
 				'lamakerja_bulan' => $post['lamakerja_bulan'],
+				'tgl_lahir' => $post['tgl_lahir'],
 				'jabatan' => $post['jabatan'],
 				'gaji' => $post['gaji'],
-				'umur' => $post['umur'],
-
-				'tgl_lahir' => $post['tgl_lahir'],
 				'alamat' => $post['alamat'],
-				'statusrumah' => $post['statusrumah'],
-				'kelurahan' => $post['kelurahan'],
-				'kecamatan' => $post['kecamatan'],
-				'provinsi' => $post['provinsi'],
 
+				'statusrumah' => $post['statusrumah'],
 				'namakerabat' => $post['namakerabat'],
-				'statuskerabat' => $post['statuskerabat'],
 				'alamatkerabat' => $post['alamatkerabat'],
 				'pekerjaankerabat' => $post['pekerjaankerabat'],
-				'perusahaankerabat' => $post['perusahaankerabat'],
 
+				'status' => $post['status'],
+				'ahliwaris' => $post['ahliwaris'],
+				'statusahliwaris' => $post['statusahliwaris'],
 			];
 			$this->db->where('idnasabah', $post['idnasabah']);
 			$this->db->update('nasabah', $data);
@@ -824,7 +813,7 @@ class Pegawai extends CI_Controller
 
 	public function tabungandetail($id)
 	{
-		$query = "SELECT `tabungan`.* , `nasabah`.*
+		$query = "SELECT `tabungan`.* , `nasabah`.`nama`, `nasabah`.`alamat`
 				FROM `tabungan` JOIN `nasabah`
 				ON `tabungan`.`idnasabah` = `nasabah`.`idnasabah`					
 				WHERE `tabungan`.`idnasabah` = `nasabah`.`idnasabah` AND `tabungan`.`idpengajuantabungan` = $id
@@ -866,7 +855,7 @@ class Pegawai extends CI_Controller
 	public function tabunganpermohonan($id)
 	{
 
-		$query = "SELECT `tabungan`.* , `nasabah`.*
+		$query = "SELECT `tabungan`.* , `nasabah`.`nama`, `nasabah`.`alamat`
 				FROM `tabungan` JOIN `nasabah`
 				ON `tabungan`.`idnasabah` = `nasabah`.`idnasabah`					
 				WHERE `tabungan`.`idnasabah` = `nasabah`.`idnasabah` AND `tabungan`.`idpengajuantabungan` = $id
