@@ -9,9 +9,7 @@
             <div class="card mb-4">
                 <div class="card-header">
                     Tabel Data Bunga Deposito
-                    <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#laporanModal" style="float: right;">
-                        Tambah Bunga
-                    </button>
+                    <a href="<?php echo site_url('pegawai/depositobungatambah/') ?>" class="btn btn-info btn-sm" style="float: right;"> Tambah Bunga</a>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -59,34 +57,5 @@
 
 
 
-<!-- Modal -->
-<div class="modal fade" id="laporanModal" tabindex="-1" aria-labelledby="laporanModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="laporanModalLabel">Tambah Bunga</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form action="<?php echo site_url('pegawai/depositobungatambah/') ?>" method="post">
-                    <div class="form-group">
-                        <label for="bunga">Persentase Bunga (%)</label>
-                        <input type="number" class="form-control" name="bunga" step=".01">
-                        <?= form_error('bunga', '<small class="text-danger pl-3">', '</small>'); ?>
-                    </div>
-                    <div class="form-group">
-                        <label for="bulan">Jangka Waktu</label>
-                        <input type="text" class="form-control" name="bulan">
-                        <?= form_error('bulan', '<small class="text-danger pl-3">', '</small>'); ?>
-                    </div>
-            </div>
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-info">Submit</button>
-            </div>
-            </form>
-        </div>
-    </div>
-</div>
+
 <?php $this->load->view("_partialsadmin/footer.php") ?>

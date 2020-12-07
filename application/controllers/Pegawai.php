@@ -165,6 +165,7 @@ class Pegawai extends CI_Controller
 			// die;
 			$this->load->view('pegawai/depositoedit', $data);
 		} else {
+
 			$post = $this->input->post();
 			$data = [
 				'jumlah' => $post['jumlah'],
@@ -291,9 +292,9 @@ class Pegawai extends CI_Controller
 		$this->form_validation->set_rules('bunga', 'bunga', 'required|trim');
 		$this->form_validation->set_rules('bulan', 'jangka waktu', 'required|trim');
 		if ($this->form_validation->run() == false) {
-			$data['tabeldeposito'] = $this->db->get('tabeldeposito')->result_array();
+			// $data['tabeldeposito'] = $this->db->get('tabeldeposito')->result_array();
 
-			$this->load->view('pegawai/depositobunga', $data);
+			$this->load->view('pegawai/depositobungatambah');
 		} else {
 			$timestamp = date("Y-m-d H:i:s");
 			$pegawai = $this->db->get_where('pegawai', ['email' => $this->session->userdata('email')])->row_array();
@@ -464,8 +465,8 @@ class Pegawai extends CI_Controller
 		// $this->form_validation->set_rules('bulan', 'bulan', 'required|trim');
 
 		if ($this->form_validation->run() == false) {
-			$data['tabelkredit'] = $this->db->get('tabelkredit')->result_array();
-			$this->load->view('pegawai/kreditbunga', $data);
+			// $data['tabelkredit'] = $this->db->get('tabelkredit')->result_array();
+			$this->load->view('pegawai/kreditbungatambah');
 		} else {
 			$timestamp = date("Y-m-d H:i:s");
 			$pegawai = $this->db->get_where('pegawai', ['email' => $this->session->userdata('email')])->row_array();
@@ -649,8 +650,8 @@ class Pegawai extends CI_Controller
 		$this->form_validation->set_rules('bunga', 'bunga', 'required|trim');
 		$this->form_validation->set_rules('bulan', 'jangka waktu', 'required|trim');
 		if ($this->form_validation->run() == false) {
-			$data['tabeltabungan'] = $this->db->get('tabeltabungan')->result_array();
-			$this->load->view('pegawai/tabunganbunga', $data);
+			// $data['tabeltabungan'] = $this->db->get('tabeltabungan')->result_array();
+			$this->load->view('pegawai/tabunganbungatambah');
 		} else {
 			$timestamp = date("Y-m-d H:i:s");
 			$pegawai = $this->db->get_where('pegawai', ['email' => $this->session->userdata('email')])->row_array();
@@ -755,6 +756,7 @@ class Pegawai extends CI_Controller
 			$data['nasabah'] = $this->db->get_where('nasabah', ['idnasabah' => $post['idnasabah']])->row_array();
 			$this->load->view('pegawai/nasabahedit', $data);
 		} else {
+			$timestamp = date("Y-m-d H:i:s");
 			$post = $this->input->post();
 			$data = [
 				'idpegawai' => $pegawai['idpegawai'],
@@ -782,6 +784,7 @@ class Pegawai extends CI_Controller
 				'status' => $post['status'],
 				'ahliwaris' => $post['ahliwaris'],
 				'statusahliwaris' => $post['statusahliwaris'],
+				'tgl_update' => $timestamp,
 			];
 			$this->db->where('idnasabah', $post['idnasabah']);
 			$this->db->update('nasabah', $data);

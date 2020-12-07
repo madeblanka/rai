@@ -160,7 +160,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="ahliwaris">Ahli Waris</label>
-                                <input type="text" class="form-control" name="ahliwaris" aria-describedby="emailHelp" placeholder=">Ahli Waris" value="<?= $nasabah['ahliwaris']; ?>">
+                                <input type="text" class="form-control" name="ahliwaris" aria-describedby="emailHelp" placeholder="Ahli Waris" value="<?= $nasabah['ahliwaris']; ?>">
                                 <?= form_error('ahliwaris', '<small class="text-danger pl-3">', '</small>'); ?>
                             </div>
                             <div class="form-group">
