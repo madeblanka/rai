@@ -45,7 +45,8 @@
 
 <body>
     <h3 class="header">Laporan Nasabah</h3>
-    <p class="">(<?= $nasabah['nik']; ?>) </p>
+
+    <p>Id Nasabah <span class="white">aaaa...</span> : <?= $nasabah['idnasabah']; ?></p>
     <p>Nama <span class="white">aaaaaaaaa..</span> : <?= $nasabah['nama']; ?></p>
     <p>Status <span class="white">aaaaaaaaa.</span> : <?= $nasabah['status']; ?></p>
     <p>Ahli Waris <span class="white">aaaa.aa</span> : <?= $nasabah['ahliwaris']; ?></p>

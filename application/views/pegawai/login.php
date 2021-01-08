@@ -28,11 +28,11 @@
                                     <form action="<?php echo site_url('pegawai/login') ?>" method="post">
                                         <div class="form-group">
                                             <label class="small mb-1" for="inputEmailAddress">Id Pegawai</label>
-                                            <input class="form-control py-4" id="inputEmailAddress" type="text" name="idpegawai" placeholder="Enter id" required />
+                                            <input class="form-control py-4" id="inputEmailAddress" type="text" name="idpegawai" placeholder="Enter id" />
                                         </div>
                                         <div class="form-group">
                                             <label class="small mb-1" for="inputPassword">Password</label>
-                                            <input class="form-control py-4" id="inputPassword" type="password" name="password" placeholder="Enter password" required />
+                                            <input class="form-control py-4" id="inputPassword" type="password" name="password" placeholder="Enter password" />
                                         </div>
                                         <button type="submit" class="btn btn-primary btn-block">Login</button>
                                         <div class="text-center" style="margin-top: 10px;">

@@ -164,12 +164,12 @@
                 </div>
                 <div class="form-group">
                     <label for="ahliwaris">Ahli Waris</label>
-                    <input type="text" class="form-control" name="ahliwaris" aria-describedby="emailHelp" placeholder="Pekerjaan Kerabat">
+                    <input type="text" class="form-control" name="ahliwaris" aria-describedby="emailHelp" placeholder="Ahli Waris">
                     <?= form_error('ahliwaris', '<small class="text-danger pl-3">', '</small>'); ?>
                 </div>
                 <div class="form-group">
                     <label for="statusahliwaris">Status Ahli Waris</label>
-                    <input type="text" class="form-control" name="statusahliwaris" aria-describedby="emailHelp" placeholder="Pekerjaan Kerabat">
+                    <input type="text" class="form-control" name="statusahliwaris" aria-describedby="emailHelp" placeholder="Status Ahli Waris">
                     <?= form_error('statusahliwaris', '<small class="text-danger pl-3">', '</small>'); ?>
                 </div>
 

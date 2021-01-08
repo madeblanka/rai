@@ -18,9 +18,9 @@
                             <thead>
                                 <tr>
                                     <th>#</th>
+                                    <th>Bunga (%)</th>
                                     <th>Plapon Minimal (Rp)</th>
                                     <th>Plapon Maksimal (Rp)</th>
-                                    <th>Bunga</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -30,9 +30,9 @@
                                 foreach ($tabelkredit as $d) : ?>
                                     <tr>
                                         <td><?php echo $i++; ?></td>
+                                        <td><?php echo $d['bunga'] ?></td>
                                         <td><?php echo  number_format($d['jumlah1'], 0, ',', '.') ?> </td>
                                         <td><?php echo  number_format($d['jumlah2'], 0, ',', '.') ?> </td>
-                                        <td><?php echo $d['bunga'] ?> %</td>
                                         <td>
                                             <a href="<?php echo site_url('pegawai/kreditbungaedit/' . $d['idkredit']) ?>" class="btn btn-small"><i class="fas fa-edit"></i> Edit</a>
                                             <a href="<?php echo site_url('pegawai/kreditbungadelete/' . $d['idkredit']) ?>" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus Data Ini ?');" href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>

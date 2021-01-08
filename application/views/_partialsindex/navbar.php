@@ -8,7 +8,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-2">
-                            <div id="colorlib-logo"><a href="index.html">Koperasi</a></div>
+                            <div id="colorib-logo"><h3><img src="<?php echo base_url('assetsindex/images/koperasi.png')?>" alt="" width="38"> <b> <a href="<?php echo site_url('halamanutama/index') ?>">Koperasi</a></b></h3></div>
                         </div>
                         <div class="col-md-10 text-right menu-1">
                             <ul>

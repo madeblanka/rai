@@ -86,11 +86,11 @@
                 <form action="<?php echo site_url('pegawai/tabunganlaporan/') ?>" method="post">
                     <div class="form-group">
                         <label for="tanggal_mulai">Start Date</label>
-                        <input type="date" class="form-control" name="tanggal_mulai" required>
+                        <input type="date" class="form-control" name="tanggal_mulai">
                     </div>
                     <div class="form-group">
                         <label for="tanggal_selesai">End Date</label>
-                        <input type="date" class="form-control" name="tanggal_selesai" required>
+                        <input type="date" class="form-control" name="tanggal_selesai">
                     </div>
             </div>
             <div class="modal-footer">
